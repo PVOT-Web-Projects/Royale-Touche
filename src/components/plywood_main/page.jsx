@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { InView } from "react-intersection-observer";
 import plywood_main_img from "@/images/plywood_main_table1.png";
 import plywood_main from "@/images/floor.png";
-import Button8 from "@/common/button/button8";
+import Link from "next/link";
 import Common_animation from "@/common/common_animation/animation";
 import styles from "@/components/plywood_main/plywood_main.module.css";
 
@@ -107,7 +107,14 @@ const Section1 = () => {
                     delay: 1,
                   }}
                 >
-                  <Button8 btn_text={"BUY NOW"} />
+                  {/* <Button8 btn_text={"BUY NOW"} /> */}
+                  {/* <Link className={styles.buyNow_Button} href="/terms_and_condition" target="_blank">
+                  BUY NOW
+                  </Link> */}
+                  <Link href="https://royaletouche.com/product/promaxx-ply/" target="_blank">
+                  <button className={styles.button8} role="button"><span className={styles.text3}></span>BUY NOW<span className={styles.text3}>BUY NOW</span>
+                  </button>
+                  </Link>
                 </motion.div>
               )}
             </InView>

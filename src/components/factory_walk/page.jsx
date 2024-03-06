@@ -1,14 +1,13 @@
 import { useEffect, useRef, useState } from "react";
-import { useRouter } from "next/navigation";
 import gsap from "gsap";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import Link from "next/link";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import styles from "@/components/factory_walk/factory_walk.module.css";
 gsap.registerPlugin(ScrollTrigger);
 
 const FactoryWalk = ({ loadFacoryWalk }) => {
-  const router = useRouter();
   const [info, setInfo] = useState(false);
   const [animationEnded, setAnimationEnded] = useState(false); // State to track animation end
   const sectionRef = useRef(null);
@@ -179,16 +178,22 @@ const FactoryWalk = ({ loadFacoryWalk }) => {
         animate={inViewButton ? "visible" : "hidden"}
         variants={variants}
         transition={{ duration: 0.6, delay: 0.2 }}
-        className={styles.buttonShowouter}
+        // className={styles.buttonShowouter}
       >
-        <button
+        {/* <button
           onClick={() => router.push("/contactUs")}
           className={styles.buttonShow}
           role="button"
         >
           <span className={styles.text1}>Buy Now</span>
           <span className={styles.text1}>Buy Now</span>
-        </button>
+        </button> */}
+
+
+        <Link className={styles.buttonShowouter}  href="https://royaletouche.com/product/promaxx-ply/" target="_blank">
+                  <button className={styles.buttonShow} role="button"><span className={styles.text3}></span>BUY NOW<span className={styles.text3}>BUY NOW</span>
+                  </button>
+                  </Link>
       </motion.div>
     </div>
   );

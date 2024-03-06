@@ -275,7 +275,7 @@ const Page = () => {
                     2023
                   </div>
                   <p className={`${styles.timeline_comment} triggered-text`}>
-                    Laminate Prodiction Unit Production Capacity expanded by 25%
+                    Laminate Production Unit Production Capacity expanded by 25%
                   </p>
                   <div className={styles.bead_outer}>
                     <div className={`${styles.bead} triggered-bead`}></div>
