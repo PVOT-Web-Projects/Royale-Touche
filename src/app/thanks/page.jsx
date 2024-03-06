@@ -11,7 +11,7 @@ import Image from "next/image";
 import logo from "@/images/finalNavbarLogo.png";
 import Navbar from "@/components/navbar/index";
 
-const page = () => {
+const Page = () => {
       const [isLoading, setIsLoading] = useState(true);
   setTimeout(() => {
     setIsLoading(false);
@@ -61,4 +61,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page
