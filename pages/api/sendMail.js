@@ -8,7 +8,7 @@ export default async function handler(req, res) {
 
   if (req.method === 'POST') {
     try {
-      const { fullName, email, Phone, Whatsapp, Address, Pincode, City, District, State, Dealer_Name, Category, Product_Name, sheets, No_of_thickness, Invoice_File, Invoice_File1, Invoice_File2, Invoice_File3 } = req.body;
+      const { fullName, email, Phone, Whatsapp, Address, Pincode, City, District, State, Dealer_Name, Invoice_File} = req.body;
 
       // const attachments = [
       //   { filename: 'Invoice_File.pdf', content: Buffer.from(Invoice_File, 'base64') },
@@ -26,6 +26,22 @@ export default async function handler(req, res) {
           pass: 'gqmkacgjfuabcrsj',
         },
       });
+      const dynamicFields = Object.keys(req.body)
+        .filter(
+          (key) =>
+            key.startsWith('Category_') ||
+            key.startsWith('Product_Name_') ||
+            key.startsWith('sheets_') ||
+            key.startsWith('No_of_thickness_')
+        )
+        .map((key) => {
+          const index = key.split('_')[1];
+          const type = key.split('_')[0];
+          const value = req.body[key];
+          return `${type} ${index}: ${typeof value === 'object' && value !== null ? value.name : value}`;
+        })
+        .join('\n');
+
 
       const mailOptions = {
         from: 'pvotweb3@gmail.com',
@@ -42,10 +58,7 @@ export default async function handler(req, res) {
           District: ${District}
           State: ${State}
           Dealer_Name: ${Dealer_Name}
-          Category: ${Category ? Category.name : ''}
-          Product_Name: ${Product_Name ? Product_Name.name : ''}
-          sheets: ${sheets}
-          No_of_thickness: ${No_of_thickness ? No_of_thickness.name : ''}
+          ${dynamicFields}
         `,
         attachments: [
           {
