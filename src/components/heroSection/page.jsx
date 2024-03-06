@@ -32,7 +32,7 @@ const Page = (props) => {
           ease: "power4.out",
         }
       );
-    }, 2500);
+    },3500);
   }, []);
   const splitWords = (phrase) => {
     let body = [];

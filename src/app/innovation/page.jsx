@@ -39,7 +39,7 @@ const Page = () => {
           />
         </div>
         <Factory_walk loadFacoryWalk={handleLoad} />
-          {/* <Factory_walk1 loadFacoryWalkMobile={handleLoad} /> */}
+          <Factory_walk1 loadFacoryWalkMobile={handleLoad} />
       </div>
       <Form />
       <Footer />

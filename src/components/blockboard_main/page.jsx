@@ -1,7 +1,7 @@
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import Image from "next/image";
-import Button8 from "@/common/button/button8";
+import Link from "next/link";
 import { InView } from "react-intersection-observer";
 import Common_animation from "@/common/common_animation/animation";
 import styles from "@/components/blockboard_main/blockboard_main.module.css";
@@ -105,7 +105,11 @@ const Blockboard = () => {
                   delay: 1,
                 }}
               >
-                <Button8 btn_text={"BUY NOW"} />
+                {/* <Button8 btn_text={"BUY NOW"} /> */}
+                <Link href="https://royaletouche.com/product/block-board-promaxx/" target="_blank">
+                  <button className={styles.button8} role="button"><span className={styles.text3}></span>BUY NOW<span className={styles.text3}>BUY NOW</span>
+                  </button>
+                  </Link>
               </motion.div>
             )}
           </InView> 

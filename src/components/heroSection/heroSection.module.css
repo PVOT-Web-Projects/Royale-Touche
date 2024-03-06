@@ -3,6 +3,9 @@
   width: 100%;
   aspect-ratio: 72/35;
 }
+
+
+
 .logo {
   height: 100%;
   cursor: pointer;
@@ -18,9 +21,12 @@
 }
 .header_text {
   color: #fff;
-  font-size: 71px;
+  font-size: 71px ;
   font-style: normal;
   position: absolute;
+  display: flex;
+  flex-wrap: wrap;
+
   bottom: 10rem;
   left: 6rem;
   font-weight: 300;
@@ -143,7 +149,7 @@
   }
 
   .header_text {
-    font-size: 86px;
+    font-size: 86px !important;
     bottom: 32rem;
     left: 6rem;
     width: 50%;
@@ -177,8 +183,11 @@
   }
 
   .header_text {
-    font-size: 71px;
-    bottom: 23rem;
+    font-size: 71px !important;
+    bottom: 17rem;
+    display: flex;
+    flex-wrap: wrap;
+
     left: 6rem;
     width: 50%;
   }
@@ -193,7 +202,7 @@
 
 @media (min-width: 1551px) and (max-width: 1700px) {
   .header_text {
-    font-size: 71px;
+    font-size: 71px !important;
     bottom: 12rem;
     left: 6rem;
     width: 58%;
@@ -214,7 +223,7 @@
 
 @media (max-width: 1440px) {
   .header_text {
-    font-size: 62px;
+    font-size: 62px !important;
     bottom: 14rem;
     left: 4rem;
     width: 65%;
@@ -240,7 +249,7 @@
 
 @media (max-width: 1199px) {
   .header_text {
-    font-size: 52px;
+    font-size: 52px !important;
     bottom: 11rem;
     left: 4rem;
     width: 62%;
@@ -282,7 +291,7 @@
   }
 
   .header_text {
-    font-size: 45px;
+    font-size: 45px !important;
     bottom: 12rem;
     left: 2rem;
     width: 62%;
@@ -368,7 +377,7 @@
   }
 
   .header_text {
-    font-size: 42px;
+    font-size: 42px !important;
     bottom: 12rem;
     left: 2rem;
     width: 70%;
@@ -405,7 +414,7 @@
 @media (max-width: 575px) {
   .header_text {
     color: #fff;
-    font-size: 38px;
+    font-size: 38px !important;
     letter-spacing: 1px;
     bottom: 12rem;
     left: 0;
@@ -453,7 +462,7 @@
   }
   .header_text {
     color: #fff;
-    font-size: 33px;
+    font-size: 33px !important;
     letter-spacing: 1px;
     bottom: 12rem;
     left: 0;
@@ -482,7 +491,7 @@
 
   .header_text {
     color: #fff;
-    font-size: 35px;
+    font-size: 35px !important;
     letter-spacing: 1px;
     bottom: 12rem;
     left: 0;
@@ -524,7 +533,7 @@
 
   .header_text {
     color: #fff;
-    font-size: 29px;
+    font-size: 29px !important;
     letter-spacing: 1px;
     bottom: 12rem;
     left: 0;
@@ -553,7 +562,7 @@
 
 @media(min-width:1px) and (max-width:249px){
   .header_text {
-    display: none;
+    display:none
   }
 }
 
