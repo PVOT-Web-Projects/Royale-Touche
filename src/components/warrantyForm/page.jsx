@@ -13,6 +13,8 @@ import { Slide, ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import styles from "@/components/warrantyForm/warrantyForm.module.css";
 import Link from "next/link";
+import index from "../footer/desc";
+
 const FormCommon = () => {
   const router = useRouter();
   const form = useRef();
@@ -22,7 +24,7 @@ const FormCommon = () => {
   const [uploadedInvoice2, setUploadedInvoice2] = useState(null);
   const [uploadedInvoice3, setUploadedInvoice3] = useState(null);
   const [submit, setSubmit] = useState(false);
-  
+
   console.log("submit", submit ? "submit" : "unsubmit");
   const products = [
     { name: "8ft x 4ft", code: "NY" },
@@ -33,11 +35,24 @@ const FormCommon = () => {
     { name: "Royale Touche Performance Ply-Promaxx+", code: "2" },
     { name: "Royale Touche Blockboard", code: "3" },
   ];
+  const indexedCategories = categories.map((category, index) => ({
+    ...category,
 
+    index: index + 1,
+  }));
   const [thicknessOptions, setThicknessOptions] = useState([]);
-  const handleCategoryChange = (category) => {
-    values.Category = category;
-    values.Product_Name = null;
+
+  console.log(thicknessOptions);
+
+  const handleCategoryChange = (category, index) => {
+    console.log("index", index);
+    // if (index === 0) {
+    //   setThicknessOptions([]);
+    // }
+    // values.Category = category;
+    // values.Product_Name = null;
+    values[`Category_${index}`] = category;
+    values[`Product_Name_${index}`] = null;
 
     if (category && category.code === "1") {
       setThicknessOptions([
@@ -48,7 +63,8 @@ const FormCommon = () => {
         { name: "19mm", code: "19mm" },
         { name: "25mm", code: "25mm" },
       ]);
-    } else if (category && category.code === "2") {
+    }
+    if (category && category.code === "2") {
       setThicknessOptions([
         { name: "6mm", code: "6mm" },
         { name: "9mm", code: "9mm" },
@@ -57,15 +73,13 @@ const FormCommon = () => {
         { name: "19mm", code: "19mm" },
         { name: "25mm", code: "25mm" },
       ]);
-    } else {
+    }
+    if (category && category.code === "3") {
       setThicknessOptions([
         { name: "19mm", code: "19mm" },
         { name: "25mm", code: "25mm" },
       ]);
     }
-  };
-  const submitMessage = () => {
-    toast.success("Form Submitted Successfully...");
   };
 
   const chooseFile = (e) => {
@@ -161,9 +175,23 @@ const FormCommon = () => {
     updatedSections.splice(index, 1);
     setSections(updatedSections);
   };
-
+  console.log("sections", sections);
+  const MAX_SECTIONS = 4;
   const addSection = () => {
-    setSections([...sections, {}]);
+    if (sections.length < MAX_SECTIONS) {
+      setSections([...sections, {}]);
+    } else {
+      toast.warning(`Maximum ${MAX_SECTIONS} sections allowed`);
+    }
+  };
+
+  const showErrorToast = () => {
+    toast.error("Please fill all the required details", {
+      data: {
+        title: "Error toast",
+        text: "This is an error message",
+      },
+    });
   };
 
   const initialValue = {
@@ -177,17 +205,15 @@ const FormCommon = () => {
     District: "",
     State: "",
     Dealer_Name: "",
-    Category: "",
-    Product_Name: "",
-    sheets: "",
+    Category: `Category_${index}`,
+    Product_Name: `Product_Name_${index}`,
+    sheets: `sheets_${index}`,
     No_of_thickness: "",
     Invoice_File: "",
     Invoice_File1: "",
     Invoice_File2: "",
     Invoice_File3: "",
     agreeTerms: false,
-    // updates: "",
-    // offers: "",
   };
 
   const clearUploadedFile = () => {
@@ -196,40 +222,73 @@ const FormCommon = () => {
     setUploadedInvoice2(null);
     setUploadedInvoice3(null);
   };
-  // ...
 
-  // ...
-
-  const onSubmit = async (values, actions) => {
-    try {
-      await axios.post("/api/sendMail", values);
-      toast.success("Form Submitted Successfully...");
-      console.log("Email sent successfully");
-      setSubmit(true);
-      actions.resetForm();
-      setUploadedInvoice(null);
-      setUploadedInvoice1(null);
-      setUploadedInvoice2(null);
-      setUploadedInvoice3(null);
-      setSelectedProduct(null);
-    } catch (error) {
-      console.error("Error submitting form: ", error);
-      toast.error("Error submitting form. Please try again.");
-
-      // Log the error response data
-      if (error.response) {
-        console.log("Error response data:", error.response.data);
-      }
-    }
-  };
-  const { values, errors, touched, handleChange, handleSubmit } = useFormik({
-    initialValues: initialValue,
-    validationSchema: FormSchemas,
-    // innerRef: form,
-    onSubmit,
-  });
+  // const onSubmit = async (values, actions) => {
+  //   try {
+  //     await toast.promise(axios.post("/api/sendMail", values), {
+  //       pending: "Form Submitting.....",
+  //       success: "Form Submitted Successfully...",
+  //       // error: 'Error Occured 🤯'
+  //     });
+  //     // toast.success("Form Submitted Successfully...");
+  //     actions.resetForm();
+  //     clearUploadedFile();
+  //     console.log("Email sent successfully");
+  //     setSubmit(true);
+  //     actions.resetForm();
+  //     setUploadedInvoice(null);
+  //     setUploadedInvoice1(null);
+  //     setUploadedInvoice2(null);
+  //     setUploadedInvoice3(null);
+  //     setSelectedProduct(null);
+  //   } catch (error) {
+  //     toast.error("Error submitting form. Please try again.");
+  //     console.error("Error submitting form: ", error);
+  //     if (error.response) {
+  //       console.log("Error response data:", error.response.data);
+  //     }
+  //   }
+  // };
+  const { values, actions, errors, touched, handleChange, handleSubmit } =
+    useFormik({
+      initialValues: initialValue,
+      validationSchema: FormSchemas,
+      onSubmit: (value, action) => {
+        console.log("value", value);
+        if (uploadedInvoice) {
+          console.log("Uploaded PDF file:", uploadedInvoice);
+        }
+        clearUploadedFile();
+        emailjs
+          .send(
+            "service_6pitte7",
+            "template_g1gqwr7",
+            values,
+            "dp6xvACY2kw4Z6gwc"
+          )
+          .then((response) => {
+            toast.success("Form Submitted Successfully...");
+            actions.resetForm();
+            console.log("Email sent successfully");
+            setSubmit(true);
+            clearUploadedFile();
+            setUploadedInvoice(null);
+            setUploadedInvoice1(null);
+            setUploadedInvoice2(null);
+            setUploadedInvoice3(null);
+            setSelectedProduct(null);
+            console.log("Email sent successfully:", response);
+            // resetForm();
+          })
+          .catch((error) => {
+            toast.error("Error submitting form. Please try again.");
+            console.error("Email send error:", error);
+          });
+        action.resetForm();
+      },
+    });
   console.log("FINAL VALUES", values);
-  console.log("response", formResponse.text);
+  console.log("response", formResponse.text);     
 
   return (
     <div className={styles.Form_Container}>
@@ -427,19 +486,22 @@ const FormCommon = () => {
           <div className={styles.Form_Second_Part}>
             <div className={styles.RT_Form_Flex}>
               <div className={styles.RT_Form_field}>
-                <label htmlFor="Category_Name" className={styles.form_Label}>
+                <label
+                  htmlFor={`Category_${index}`}
+                  className={styles.form_Label}
+                >
                   Category Name
                 </label>
                 <Dropdown
-                  value={values.Category}
+                  value={values[`Category_${index}`]}
                   onChange={(e) => {
-                    handleCategoryChange(e.value);
+                    handleCategoryChange(e.value, index);
                     setSelectedProduct(null);
                   }}
                   // onChange={(e) => setSelectedCategory(e.value)}
-                  options={categories}
+                  options={indexedCategories}
                   optionLabel="name"
-                  name="Category"
+                  name={`Category_${index}`}
                   placeholder="Select Category"
                   className={styles.input_field}
                   // value={values.Category}
@@ -503,7 +565,7 @@ const FormCommon = () => {
                 </label>
                 <Dropdown
                   value={values.No_of_thickness}
-                  onChange={handleChange}
+                  onChange={(e) => handleChange(e, index)}
                   // onChange={(e) => handleThicknessChange(e.value)}
                   options={thicknessOptions}
                   optionLabel="name"
@@ -519,54 +581,90 @@ const FormCommon = () => {
             </div>
           </div>
 
-          {sections.map((section, index) => (
-            <div key={index} className={styles.Form_Second_Part}>
-              <div className={styles.RT_Form_Flex}>
-                <div className={styles.RT_Form_field}>
-                  <label htmlFor="Category_Name" className={styles.form_Label}>
-                    Category Name
-                  </label>
-                  <Dropdown
-                    value={values.Category}
-                    onChange={(e) => {
-                      handleCategoryChange(e.value);
-                      setSelectedProduct(null);
-                    }}
-                    // onChange={(e) => setSelectedCategory(e.value)}
-                    options={categories}
-                    optionLabel="name"
-                    name="Category"
-                    placeholder="Select Category"
-                    className={styles.input_field}
-                    // value={values.Category}
-                  />
-                  {touched.Category && errors.Category && (
-                    <p className="error">{errors.Category}</p>
-                  )}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          {sections.map((section, index) => {
+            console.log("section", section);
+            return (
+              <div key={index} className={styles.Form_Second_Part}>
+                <div className={styles.RT_Form_Flex}>               
+                  <div className={styles.RT_Form_field}>
+                    <label
+                      htmlFor={`Category_Name_${index}`}
+                      className={styles.form_Label}
+                    >
+                      Category Name
+                    </label>
+
+                    <Dropdown
+                      value={values[`Category_${index}`]}
+                      onChange={(e) => {
+                        handleCategoryChange(e.value, index);
+                        setSelectedProduct(null);
+                      }}
+                      // onChange={(e) => setSelectedCategory(e.value)}
+                      options={indexedCategories}
+                      optionLabel="name"
+                      name={`Category_${index}`}
+                      placeholder="Select Category"
+                      className={styles.input_field}
+                      // value={values.Category}
+                    />
+                    {touched[`Category_${index}`] &&
+                      errors[`Category_${index}`] && (
+                        <p className="error">{errors[`Category_${index}`]}</p>
+                      )}
+                  </div>
+                  <div className={styles.RT_Form_field}>
+                    <label
+                      htmlFor={`Product_Name_${index}`}
+                      className={styles.form_Label}
+                    >
+                      Select Product *
+                    </label>
+                    <Dropdown
+                      value={values[`Product_Name_${index}`]}
+                      onChange={(e) => handleChange(e, index)}
+                      options={products.map((product) => ({
+                        ...product,
+                        name: `${product.name}`,
+                      }))}
+                      // onChange={(e) => setSelectedProduct(e.value)}
+                      optionLabel="name"
+                      name={`Product_Name_${index}`}
+                      placeholder="Product"
+                      className={styles.input_field}
+                    />
+                  </div>
                 </div>
-                <div className={styles.RT_Form_field}>
-                  <label htmlFor="Category_Name" className={styles.form_Label}>
-                    Select Product *
-                  </label>
-                  <Dropdown
-                    value={values.Product_Name}
-                    onChange={handleChange}
-                    // onChange={(e) => setSelectedProduct(e.value)}
-                    options={products}
-                    optionLabel="name"
-                    name="Product_Name"
-                    placeholder="Product"
-                    className={styles.input_field}
-                  />
-                </div>
-              </div>
-              {/* sheets */}
-              <div className={styles.RT_Form_Flex}>
-                <div className={styles.RT_Form_field}>
-                  <label htmlFor="Sheets" className={styles.form_Label}>
-                    No Of Sheets
-                  </label>
-                  {/* <Dropdown
+                {/* sheets */}
+                <div className={styles.RT_Form_Flex}>
+                  <div className={styles.RT_Form_field}>
+                    <label
+                      htmlFor={`sheets_${index}`}
+                      className={styles.form_Label}
+                    >
+                      No Of Sheets
+                    </label>
+                    {/* <Dropdown
                  value={selectedSheets}
                  onChange={(e) => setSelectedSheets(e.value)}
                  options={sheets}
@@ -575,52 +673,55 @@ const FormCommon = () => {
                  placeholder="Enter No Of Sheets"
                  className={styles.input_field}
                /> */}
-                  <input
-                    type="number"
-                    placeholder="Enter No of sheets"
-                    name="sheets"
-                    className={styles.input_field}
-                    onChange={handleChange}
-                    value={values.sheets}
-                  />
-                  {touched.sheets && errors.sheets && (
-                    <p className="error">{errors.sheets}</p>
-                  )}
+                    <input
+                      type="number"
+                      placeholder="Enter No of sheets"
+                      name={`sheets_${index}`}
+                      className={styles.input_field}
+                      onChange={(e) => handleChange(e, index)}
+                      value={values[`sheets_${index}`]}
+                    />
+                    {touched[`sheets_${index}`] &&
+                      errors[`sheets_${index}`] && (
+                        <p className="error">{errors[`sheets_${index}`]}</p>
+                      )}
+                  </div>
+                  <div className={styles.RT_Form_field}>
+                    <label
+                      htmlFor={`No_of_thickness_${index}`}
+                      className={styles.form_Label}
+                    >
+                      Thickness
+                    </label>
+                    <Dropdown
+                      value={values[`No_of_thickness_${index}`]}
+                      onChange={(e) => handleChange(e, index)}
+                      options={thicknessOptions}
+                      optionLabel="name"
+                      name={`No_of_thickness_${index}`}
+                      placeholder="Select Thickness"
+                      className={styles.input_field}
+                      // disabled={!selectedProduct}
+                    />
+                  </div>
                 </div>
-                <div className={styles.RT_Form_field}>
-                  <label htmlFor="Thickness" className={styles.form_Label}>
-                    Thickness
-                  </label>
-                  <Dropdown
-                    value={values.No_of_thickness}
-                    // onChange={handleThicknessChange}
-                    onChange={handleChange}
-                    // onChange={(e) => handleThicknessChange(e.value)}
-                    options={thicknessOptions}
-                    optionLabel="name"
-                    name="No_of_thickness"
-                    placeholder="Select Thickness"
-                    className={styles.input_field}
-                    // disabled={!selectedProduct}
-                  />
-                </div>
-              </div>
 
-              <div className={styles.Form_btn_Outer1}>
-                <button
-                  onClick={() => removeSection(index)}
-                  class="button-571"
-                  role="button"
-                >
-                  <span class="text">Remove</span>
-                  <span>Remove</span>
-                </button>
+                <div className={styles.Form_btn_Outer1}>
+                  <button
+                    onClick={() => removeSection(index)}
+                    class="button-571"
+                    role="button"
+                  >
+                    <span class="text">Remove</span>
+                    <span>Remove</span>
+                  </button>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
 
           <div className={styles.Form_btn_Outer}>
-            <button onClick={addSection} class="button-57" role="button">
+            <div onClick={addSection} class="button-57" role="button">
               <span className="text">
                 {/* <div className=""> */}
                 <svg
@@ -641,8 +742,14 @@ const FormCommon = () => {
                 ADD MORE
               </span>
               <span>CLICK TO ADD MORE</span>
-            </button>
+            </div>
           </div>
+
+
+
+
+
+          
         </div>
 
         {/* Upload File */}
@@ -800,7 +907,7 @@ const FormCommon = () => {
                   value={values.agreeTerms}
                   // checked={values.agreeTerms}
                   onChange={handleChange}
-                  required
+                  // required
                   checked={values.agreeTerms}
                 />
               </div>
@@ -817,43 +924,49 @@ const FormCommon = () => {
                 </span>
               </p>
             </div>
-
+            {touched.agreeTerms && errors.agreeTerms && (
+              <p className="error">{errors.agreeTerms}</p>
+            )}
           </div>
           {/*  */}
           <div className={styles.Form_btn_Outer_Main}>
             <button
               class="button-57"
               role="button"
-              onClick={submitMessage}
-              disabled={!values.agreeTerms}
+              onClick={() => {
+                handleSubmit();
+                showErrorToast();
+                // submitMessage();
+              }}
+              // disabled={!values.agreeTerms}
             >
               <span class="text"> Submit</span>
               <span> Submit</span>
             </button>
-            <div className={styles.submit}>
+            {/* <div className={styles.submit} >
               {submit && "Form Submitted Successfully"}
-            </div>
+            </div> */}
             {/* <button className={styles.Form_btn_inner} onClick={notify}>
               Submit
             </button> */}
             {/* <Toaster position="top-right" /> */}
-            {formResponse.text === "OK" && (
-              <ToastContainer
-                position="top-right"
-                autoClose={3000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick={true}
-                rtl={false}
-                pauseOnFocusLoss={false}
-                draggable={false}
-                pauseOnHover={false}
-                theme="light"
-                transition={Slide}
-                className={"contactFormNotification"}
-                // progressStyle={{ background: "#f90" }}
-              />
-            )}
+            {/* {formResponse.text === "OK" && ( */}
+            <ToastContainer
+              position="top-right"
+              autoClose={3000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick={true}
+              rtl={false}
+              pauseOnFocusLoss={false}
+              draggable={false}
+              pauseOnHover={false}
+              theme="light"
+              transition={Slide}
+              className={"contactFormNotification"}
+              // progressStyle={{ background: "#f90" }}
+            />
+            {/* )}  */}
           </div>
         </div>
       </form>

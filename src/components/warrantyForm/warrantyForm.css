@@ -31,6 +31,9 @@
   color: red;
   margin-left: 1.3rem;
 }
+#getFile0 {
+  display: none;
+}
 #getFile {
   display: none;
 }

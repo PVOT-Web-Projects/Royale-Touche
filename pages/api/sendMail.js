@@ -1,71 +1,52 @@
-
 import nodemailer from 'nodemailer';
-// import sendmailTransport from 'nodemailer-sendmail-transport';
-import styles from "../api/mail.module.css"
+import styles from "../api/mail.module.css";
 import img1 from "pages/api/finalNavbarLogo.png";
+
 export default async function handler(req, res) {
-    console.log('API route hit:', req.method, req.url);
+  console.log('API route hit:', req.method, req.url);
   console.log('Request body:', req.body);
+
   if (req.method === 'POST') {
-      // Assuming req.body contains the form data
-      const { fullName, email, Phone,Whatsapp,Address,Pincode,City,
-        District,State, Dealer_Name,Category,Product_Name,sheets,No_of_thickness} = req.body;
-        const { Invoice_File, Invoice_File1, Invoice_File2, Invoice_File3 } = req.body;
-        const attachments = [];
+    try {
+      const { fullName, email, Phone, Whatsapp, Address, Pincode, City, District, State, Dealer_Name, Invoice_File} = req.body;
 
-        const addAttachment = (file, filename) => {
-          if (file) {
-            const decodedFile = Buffer.from(file, 'base64');
-            attachments.push({ filename, content: decodedFile});
-            console.log(`Attachment added: ${filename}`);
-            console.log(decodedFile.toString()); 
-          }
-        };
-        addAttachment(Invoice_File, 'Invoice_File.pdf');
-        addAttachment(Invoice_File1, 'Invoice_File1.pdf');
-        addAttachment(Invoice_File2, 'Invoice_File2.pdf');
-        addAttachment(Invoice_File3, 'Invoice_File3.pdf');  
-      
-        const transporter = nodemailer.createTransport({
-          host: 'smtp.gmail.com',
-          port: 587,
-          // secure: false, 
-            auth: {
-              user: 'pvotweb3@gmail.com',
-              pass: 'gqmkacgjfuabcrsj',
-            },
-          });
+      // const attachments = [
+      //   { filename: 'Invoice_File.pdf', content: Buffer.from(Invoice_File, 'base64') },
+      //   { filename: 'Invoice_File1.pdf', content: Buffer.from(Invoice_File1, 'base64') },
+      //   { filename: 'Invoice_File2.pdf', content: Buffer.from(Invoice_File2, 'base64') },
+      //   { filename: 'Invoice_File3.pdf', content: Buffer.from(Invoice_File3, 'base64') },
+      // ];
 
+      const transporter = nodemailer.createTransport({
+        host: 'smtp.gmail.com',
+        port: 465, // Change to 587 if using TLS
+        secure: true, // Change to false if using TLS
+        auth: {
+          user: 'pvotweb3@gmail.com',
+          pass: 'gqmkacgjfuabcrsj',
+        },
+      });
+      const dynamicFields = Object.keys(req.body)
+        .filter(
+          (key) =>
+            key.startsWith('Category_') ||
+            key.startsWith('Product_Name_') ||
+            key.startsWith('sheets_') ||
+            key.startsWith('No_of_thickness_')
+        )
+        .map((key) => {
+          const index = key.split('_')[1];
+          const type = key.split('_')[0];
+          const value = req.body[key];
+          return `${type} ${index}: ${typeof value === 'object' && value !== null ? value.name : value}`;
+        })
+        .join('\n');
 
-//           const autoReplyMessage = `
-//           Hello ${fullName},
-//           We received your application to claim the warranty certificate for Royale Touche Performance Ply. Please share the invoices for the purchased product in order to proceed further and claim your warranty certificate.
-//           Thanks & Regards,
-//           Team Royale Touche
-// `;
 
       const mailOptions = {
-        from: 'pvotweb3@gmail.com', // sender address
-        to: 'pvotweb3@gmail.com',   // receiver address
-        subject: 'New Form Submission of Claim Warranty By user', // Subject line
-        // html:`
-        // <div class="${styles.emailContainer}">
-        // <h2>New Form Submission</h2>
-        // <p><strong>Full Name:</strong> ${fullName}</p>
-        // <p><strong>Email:</strong> ${email}</p>
-        // <p><strong>Phone:</strong> ${Phone}</p>
-        // <p><strong>Whatsapp Number:</strong> ${Whatsapp}</p>
-        // <p><strong>Address:</strong> ${Address}</p>
-        // <p><strong>Pincode Number:</strong> ${Pincode}</p>
-        // <p><strong>Phone:</strong> ${Phone}</p>
-        // <p><strong>Whatsapp Number:</strong> ${Whatsapp}</p>
-        // <p><strong>Phone:</strong> ${Phone}</p>
-        // <p><strong>Whatsapp Number:</strong> ${Whatsapp}</p>
-        // <div class="${styles.customSection}">
-        //   <img src="${img1}" alt="Your Logo" class="${styles.logo}">
-        // </div>
-        // </div>
-        // `
+        from: 'pvotweb3@gmail.com',
+        to: 'pvotweb3@gmail.com',
+        subject: 'New Form Submission of Claim Warranty By user',
         text: `
           Full Name: ${fullName}
           Email: ${email}
@@ -73,71 +54,47 @@ export default async function handler(req, res) {
           Whatsapp: ${Whatsapp}
           Address: ${Address}
           Pincode: ${Pincode}
-          City: ${City}       
+          City: ${City}
           District: ${District}
           State: ${State}
           Dealer_Name: ${Dealer_Name}
-          Category: ${Category ? Category.name : ''}
-          Product_Name: ${Product_Name ? Product_Name.name : ''}
-          sheets: ${sheets}
-          No_of_thickness: ${No_of_thickness ? No_of_thickness.name : ''}
+          ${dynamicFields}
         `,
-        attachments,
-        // replyTo: email,
-        // subject: 'Auto-Reply: Warranty Claim Form Submission',
-        // html: autoReplyMessage,
-        // attachments: [
-        //   {
-        //     filename: 'invoice.pdf', // Adjust the filename as needed
-        //     content: req.body.Invoice_File, // Assuming req.body.Invoice_File contains the PDF data
-        //     encoding: 'base64'
-        //   }
-        // ]
+        attachments: [
+          {
+            filename: 'Invoice_File.pdf', 
+            content: Invoice_File, 
+            encoding: 'base64',
+          },
+        ],
         // attachments,
       };
-      // if (Invoice_File) {
-      //   mailOptions.attachments.push({ filename: 'Invoice_File.pdf', content: Invoice_File, encoding: 'base64' });
-      // }
-      // if (Invoice_File1) {
-      //   mailOptions.attachments.push({ filename: 'Invoice_File1.pdf', content: Invoice_File1, encoding: 'base64' });
-      // }
-      // if (Invoice_File2) {
-      //   mailOptions.attachments.push({ filename: 'Invoice_File2.pdf', content: Invoice_File2, encoding: 'base64' });
-      // }
-      // if (Invoice_File3) {
-      //   mailOptions.attachments.push({ filename: 'Invoice_File3.pdf', content: Invoice_File3, encoding: 'base64' });
-      // }
-      // Repeat the above block for other attachments
-      
-      console.log(mailOptions); // Log attachments
-      try {
-        // Send the email
-        await transporter.sendMail(mailOptions);
 
-        const autoReplyOptions = {
-          from: 'pvotweb3@gmail.com',
-          to: email,
-          subject: 'Claim your Warranty Certificate - From Royale Touche Performance Ply',
-          html: `
-            <div style="font-family: Arial, sans-serif; padding: 20px; background-color: #f4f4f4; color: #333;">
-              <h2>Hello ${fullName},</h2>
-              <p>We received your application to claim the warranty certificate for Royale Touche Performance Ply. Please share the invoices for the purchased product in order to proceed further and claim your warranty certificate.</p>
-              <p>Thanks & Regards,</p>
-              <p style="font-weight: bold;">Team Royale Touche</p>
-            </div>
-          `,
-        };
-        
-        await transporter.sendMail(autoReplyOptions);
-        // Respond with a success message
-        res.status(200).json({ message: 'Email sent successfully' });
-      } catch (error) {
-        console.error('Error sending email:', error);
-        // Respond with an error message
-        res.status(500).json({ message: 'Internal Server Error' });
-      }
-    } else {
-      // Respond with a 404 for non-POST requests
-      res.status(404).json({ message: 'Not Found' });
+      console.log(mailOptions);
+
+      await transporter.sendMail(mailOptions);
+
+      const autoReplyOptions = {
+        from: 'pvotweb3@gmail.com',
+        to: email,
+        subject: 'Claim your Warranty Certificate - From Royale Touche Performance Ply',
+        html: `
+          <div style="font-family: Arial, sans-serif; padding: 20px; background-color: #f4f4f4; color: #333;">
+            <h2>Hello ${fullName},</h2>
+            <p>We received your application to claim the warranty certificate for Royale Touche Performance Ply. Please share the invoices for the purchased product to proceed further and claim your warranty certificate.</p>
+            <p>Thanks & Regards,</p>
+            <p style="font-weight: bold;">Team Royale Touche</p>
+          </div>
+        `,
+      };
+
+      await transporter.sendMail(autoReplyOptions);
+      res.status(200).json({ message: 'Email sent successfully' });
+    } catch (error) {
+      console.error('Error sending email:', error);
+      res.status(500).json({ message: 'Internal Server Error' });
     }
+  } else {
+    res.status(404).json({ message: 'Not Found' });
   }
+}
