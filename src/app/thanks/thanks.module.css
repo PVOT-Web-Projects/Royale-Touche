@@ -1,0 +1,43 @@
+.logo {
+  margin: 0 0 20px;
+  max-width: 100%;
+  display: block;
+}
+
+.content {
+  background-color: #fff;
+  padding: 100px 100px;
+  text-align: center;
+}
+.thanksHeading {
+  color: #006861;
+  font-size: 60px;
+  margin: 0 0 20px;
+}
+.thanksSmallHeading {
+  font-size: 30px;
+}
+@media (max-width: 991px) {
+  .thanksHeading {
+    font-size: 40px;
+  }
+  .thanksSmallHeading {
+    font-size: 22px;
+  }
+}
+@media (max-width: 767px) {
+  .content {
+    padding: 100px 50px;
+  }
+}
+@media (max-width: 575px) {
+  .content {
+    padding: 50px 20px;
+  }
+  .thanksHeading {
+    font-size: 30px;
+  }
+  .thanksSmallHeading {
+    font-size: 18px;
+  }
+}

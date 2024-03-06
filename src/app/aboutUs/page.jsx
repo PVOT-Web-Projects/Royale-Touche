@@ -24,6 +24,7 @@ const Page = () => {
   //     const locomotiveScroll = new LocomotiveScroll();
   //   })();
   // }, []);
+  
 
   setTimeout(() => {
     setIsLoading(false);
