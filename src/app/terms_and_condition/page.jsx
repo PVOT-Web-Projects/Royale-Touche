@@ -5,6 +5,8 @@ import Preloader from "@/components/preloader/page";
 import Footer from "@/components/footer/page";
 import Navbar from "@/components/navbar/index";
 import styles from "@/app/terms_and_condition/terms.module.css";
+import Inner_header from "@/common/inner_header/page";
+import Claim_banner from "@/images/claim_banner.png";
 const Page = () => {
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
@@ -26,6 +28,10 @@ const Page = () => {
       <AnimatePresence mode="wait">
         {isLoading && <Preloader />}
       </AnimatePresence>
+      <Inner_header
+        inner_header_image={Claim_banner}
+        heading_big="Terms & Condition"
+      />
       <div>
         <Navbar />
       </div>

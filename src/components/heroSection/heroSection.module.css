@@ -83,6 +83,8 @@
   transform: translate(-50%, -50%) !important;
   font-weight: 300;
   line-height: normal;
+  display: flex;
+  flex-wrap: wrap;
 }
 .header_comment {
   color: #fff;
