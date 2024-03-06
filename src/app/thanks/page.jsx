@@ -11,8 +11,8 @@ import Image from "next/image";
 import logo from "@/images/finalNavbarLogo.png";
 import Navbar from "@/components/navbar/index";
 
-export default function page() {
-  const [isLoading, setIsLoading] = useState(true);
+const page = () => {
+      const [isLoading, setIsLoading] = useState(true);
   setTimeout(() => {
     setIsLoading(false);
     if (typeof document !== "undefined") {
@@ -21,7 +21,7 @@ export default function page() {
     }
   }, 2000);
   return (
-    <main>
+      <main>
       <AnimatePresence mode="wait">
         {isLoading && <Preloader />}
       </AnimatePresence>
@@ -58,5 +58,7 @@ export default function page() {
       </div>
       <Footer />
     </main>
-  );
+  )
 }
+
+export default page
