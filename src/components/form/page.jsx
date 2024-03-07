@@ -1005,6 +1005,7 @@ const Contactform = () => {
   // };
 
   const handleSubmitForm = async (value) => {
+    console.log("API Value", value);
     try {
       const response = await fetch(
         "https://prod-14.centralindia.logic.azure.com/workflows/171dcbea9b1148e88514788a30bc1718/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=52ykqTmRHPECU-KMQbm1r_aZIHIvcdAzpCVe_F4fl2U",
@@ -1018,10 +1019,11 @@ const Contactform = () => {
       );
       const result = await response.json();
       console.log("API Response", result);
-    } catch (e) {
-      console.error(e);
+    } catch (error) {
+      console.error(error);
     }
   };
+
 
   const { values, errors, touched, handleChange, handleSubmit, setFieldValue } =
     useFormik({
@@ -1030,23 +1032,7 @@ const Contactform = () => {
       onSubmit: (value, action) => {
         handleSubmitForm(value);
         action.resetForm();
-        console.log("values", value);
-        // emailjs
-        //   .send(
-        //     "service_6pitte7",
-        //     "template_azgm81o",
-        //     values,
-        //     "dp6xvACY2kw4Z6gwc"
-        //   )
-        //   .then((response) => {
-        //     console.log("Email sent successfully:", response);
-        //     setFormResponse(response);
-        //     action.resetForm();
-        //     // resetForm();
-        //   })
-        //   .catch((error) => {
-        //     console.error("Email send error:", error);
-        //   });
+        console.log("values", value);       
         submitMessage();
         action.resetForm();
         console.log("FINALVALUE", value);
