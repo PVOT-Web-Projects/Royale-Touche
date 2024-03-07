@@ -1004,7 +1004,8 @@ const Contactform = () => {
   //   };
   // };
 
-  const handleSubmitForm = async () => {
+  const handleSubmitForm = async (values) => {
+    console.log(values)
     try {
       const response = await fetch(
         "https://prod-14.centralindia.logic.azure.com/workflows/171dcbea9b1148e88514788a30bc1718/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=52ykqTmRHPECU-KMQbm1r_aZIHIvcdAzpCVe_F4fl2U",
@@ -1028,7 +1029,7 @@ const Contactform = () => {
       initialValues: initialValue,
       validationSchema: ContactFormSchemas,
       onSubmit: (value, action) => {
-        handleSubmitForm();
+        handleSubmitForm(value);
         action.resetForm();
         console.log("values", value);
         emailjs
@@ -1091,7 +1092,7 @@ const Contactform = () => {
             <div className={styles.field}>
               <label htmlFor="phone">Phone</label>
               <input
-                type="number"
+                type="text"
                 name="PhoneNo"
                 onChange={handleChange}
                 value={values.PhoneNo}
