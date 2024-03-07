@@ -6,7 +6,7 @@ import styles from "@/components/form/form.module.css";
 import Button from "@/common/button/button3";
 import Image from "next/image";
 import { Slide, ToastContainer, toast } from "react-toastify";
-import emailjs from "@emailjs/browser";
+// import emailjs from "@emailjs/browser";
 import "react-toastify/dist/ReactToastify.css";
 import form_image from "@/images/contactImage.png";
 import { ContactFormSchemas } from "@/components/schemas/page";
@@ -994,7 +994,17 @@ const Contactform = () => {
   const submitMessage = () => {
     toast.success("Form Submitted Successfully...");
   };
-  
+  // const webSocket = () => {
+  //   const newSocket = new WebSocket("https://prod-14.centralindia.logic.azure.com/workflows/171dcbea9b1148e88514788a30bc1718/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=52ykqTmRHPECU-KMQbm1r_aZIHIvcdAzpCVe_F4fl2U");
+  //   newSocket.onopen = () => console.log("WS Connected");
+  //   newSocket.onclose = () => console.log("WS Disconnected");
+  //   newSocket.onerror = (err) => console.log("WS Error");
+  //   newSocket.onmessage = (e) => {
+  //     const data = JSON.parse(values);
+  //     console.log("WS Receives: ", data);
+  //   };
+  // };
+
   const handleSubmitForm = async () => {
     try {
       const response = await fetch(
@@ -1019,25 +1029,25 @@ const Contactform = () => {
       initialValues: initialValue,
       validationSchema: ContactFormSchemas,
       onSubmit: (value, action) => {
-        handleSubmitForm()
-       setFieldValue(value)
+        handleSubmitForm();
+        action.resetForm();
         console.log("values", value);
-        emailjs
-          .send(
-            "service_6pitte7",
-            "template_azgm81o",
-            values,
-            "dp6xvACY2kw4Z6gwc"
-          )
-          .then((response) => {
-            console.log("Email sent successfully:", response);
-            setFormResponse(response);
-            action.resetForm();
-            // resetForm();
-          })
-          .catch((error) => {
-            console.error("Email send error:", error);
-          });
+        // emailjs
+        //   .send(
+        //     "service_6pitte7",
+        //     "template_azgm81o",
+        //     values,
+        //     "dp6xvACY2kw4Z6gwc"
+        //   )
+        //   .then((response) => {
+        //     console.log("Email sent successfully:", response);
+        //     setFormResponse(response);
+        //     action.resetForm();
+        //     // resetForm();
+        //   })
+        //   .catch((error) => {
+        //     console.error("Email send error:", error);
+        //   });
         submitMessage();
         action.resetForm();
         console.log("FINALVALUE", value);
@@ -1083,7 +1093,7 @@ const Contactform = () => {
             <div className={styles.field}>
               <label htmlFor="phone">Phone</label>
               <input
-                type="number"
+                type="text"
                 name="PhoneNo"
                 onChange={handleChange}
                 value={values.PhoneNo}
