@@ -15,7 +15,6 @@ const Contactform = () => {
   const [formResponse, setFormResponse] = useState("");
   const [selectedState, setSelectedState] = useState("");
   const [cities, setCities] = useState([]);
-  const [finalValue, setFinalValue] = useState({})
 
   const stateOption = [
     { value: "AndraPradesh", label: "AndraPradesh" },
@@ -1005,13 +1004,13 @@ const Contactform = () => {
   //   };
   // };
 
-  const handleSubmitForm = async () => {
+  const handleSubmitForm = async (value) => {
     try {
       const response = await fetch(
         "https://prod-14.centralindia.logic.azure.com/workflows/171dcbea9b1148e88514788a30bc1718/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=52ykqTmRHPECU-KMQbm1r_aZIHIvcdAzpCVe_F4fl2U",
         {
           method: "POST",
-          body: JSON.stringify(finalValue),
+          body: JSON.stringify(value),
           headers: {
             "Content-type": "application/json",
           },
@@ -1029,7 +1028,7 @@ const Contactform = () => {
       initialValues: initialValue,
       validationSchema: ContactFormSchemas,
       onSubmit: (value, action) => {
-        handleSubmitForm();
+        handleSubmitForm(value);
         action.resetForm();
         console.log("values", value);
         // emailjs
