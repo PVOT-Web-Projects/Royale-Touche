@@ -55,70 +55,6 @@ const Contactform = () => {
     { value: "Puducherry", label: "Puducherry" },
   ];
 
-  // const yearOptions = [
-  //   { value: "Ahmedabad", label: "Ahmedabad" },
-  //   { value: "Amreli", label: "Amreli" },
-  //   { value: "Anand", label: "Anand" },
-  //   { value: "Banaskantha", label: "Banaskantha" },
-  //   { value: "Bhavnagar", label: "Bhavnagar" },
-  //   { value: "Dahod", label: "Dahod" },
-  //   { value: "Dang", label: "Dang" },
-  //   { value: "Gandhinagar", label: "Gandhinagar" },
-  //   { value: "Godhara", label: "Godhara" },
-  //   { value: "Jamnagar", label: "Jamnagar" },
-  //   { value: "Junagadh", label: "Junagadh" },
-  //   { value: "Kheda", label: "Kheda" },
-  //   { value: "Kutch", label: "Kutch" },
-  //   { value: "Mahesana", label: "Mahesana" },
-  //   { value: "Narmada", label: "Narmada" },
-  //   { value: "Navsari", label: "Navsari" },
-  //   { value: "Patan", label: "Patan" },
-  //   { value: "Porbandar", label: "Porbandar" },
-  //   { value: "Rajkot", label: "Rajkot" },
-  //   { value: "Sabarkantha", label: "Sabarkantha" },
-  //   { value: "Surat", label: "Surat" },
-  //   { value: "Surendranagar", label: "Surendranagar" },
-  //   { value: "Vadodara", label: "Vadodara" },
-  //   { value: "Valsad", label: "Valsad" },
-  //   { value: "Tapi", label: "Tapi" },
-  //   { value: "Navsari", label: "Navsari" },
-  //   { value: "Pune", label: "Pune" },
-  //   { value: "Nagpur", label: "Nagpur" },
-  //   { value: "Mumbai", label: "Mumbai" },
-  //   { value: "Maharastra", label: "Maharastra" },
-  //   { value: "Rajasthan", label: "Rajasthan" },
-  //   { value: "Delhi", label: "Delhi" },
-  //   { value: "Kerela", label: "Kerela" },
-  //   { value: "Kolkata", label: "Kolkata" },
-  //   { value: "Jaipur", label: "Jaipur" },
-  //   { value: "Goa", label: "Goa" },
-  //   { value: "Karnataka", label: "Karnataka" },
-  //   { value: "BHOPAL", label: "BHOPAL" },
-  //   { value: "Ujjain", label: "Ujjain" },
-  //   { value: "Jagatpur", label: "Jagatpur" },
-  //   { value: "Jaipur", label: "Jaipur" },
-  //   { value: "Tripura", label: "Tripura" },
-  //   { value: "Mirzapur", label: "Mirzapur" },
-  //   { value: "Mathura", label: "Mathura" },
-  //   { value: "Patna", label: "Patna" },
-  //   { value: "Raipur", label: "Raipur" },
-  //   { value: "Kota", label: "Kota" },
-  //   { value: "Rohini", label: "Rohini" },
-  //   { value: "Ranchi", label: "Ranchi" },
-  //   { value: "Nepal", label: "Nepal" },
-  //   { value: "Chennai", label: "Chennai" },
-  //   { value: "Odisha", label: "Odisha" },
-  //   { value: "Lucknow", label: "Lucknow" },
-  //   { value: "Odisha", label: "Odisha" },
-  //   { value: "Assam", label: "Assam" },
-  //   { value: "Rewa", label: "Rewa" },
-  //   { value: "Solapur", label: "Solapur" },
-  //   { value: "Mansa", label: "Mansa" },
-  //   { value: "Jaisalmer", label: "Jaisalmer" },
-  //   { value: "Udaipur", label: "Udaipur" },
-  //   { value: "Hyderabad", label: "Hyderabad" },
-  // ];
-
   const handleStateChange = (selectedOption) => {
     setSelectedState(selectedOption);
     setFieldValue("state", selectedOption.value);
@@ -994,7 +930,7 @@ const Contactform = () => {
     toast.success("Form Submitted Successfully...");
   };
 
-  const handleSubmitForm = async (values) => {
+  const handleSubmitForm = async (values, { resetForm }) => {
     console.log(values)
     try {
       const response = await fetch(
@@ -1009,17 +945,25 @@ const Contactform = () => {
       );
       const result = await response.json();
       console.log("API Response", result);
+      if (response.ok) {
+        resetForm();
+        setSelectedState("");
+        setCities([]);
+        toast.success("Email sent successfully");
+      } else {
+        console.error("API Error:", result);
+      }
     } catch (e) {
-      console.error(e);
+      console.error("error", e);
     }
   };
 
-  const { values, errors, touched, handleChange, handleSubmit, setFieldValue } =
+  const { values, errors, touched, handleChange, handleSubmit, setFieldValue, resetForm } =
     useFormik({
       initialValues: initialValue,
       validationSchema: ContactFormSchemas,
       onSubmit: (value, action) => {
-        handleSubmitForm(value);
+        handleSubmitForm(value, resetForm);
         action.resetForm();
         console.log("values", value);
         // emailjs
@@ -1162,7 +1106,7 @@ const Contactform = () => {
             </div>
             <div className={styles.common_button_outer2}>
               <Button btn_text="Send Message" />
-              {formResponse.text === "OK" && (
+              {/* {formResponse.text === "OK" && ( */}
                 <ToastContainer
                   position="top-right"
                   autoClose={3000}
@@ -1178,7 +1122,7 @@ const Contactform = () => {
                   className={"contactFormNotification"}
                   // progressStyle={{ background: "#f90" }}
                 />
-              )}
+              {/* )} */}
             </div>
           </div>
         </form>
@@ -1187,6 +1131,6 @@ const Contactform = () => {
         </div>
       </div>
     </div>
-  );
+  );      
 };
 export default Contactform;
