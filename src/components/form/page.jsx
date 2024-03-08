@@ -930,21 +930,20 @@ const Contactform = () => {
     toast.success("Form Submitted Successfully...");
   };
 
-  const handleSubmitForm = async (values) => {
-    console.log(values);
+  const handleSubmitForm = async () => {
     try {
       const response = await fetch(
         "https://prod-14.centralindia.logic.azure.com/workflows/171dcbea9b1148e88514788a30bc1718/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=52ykqTmRHPECU-KMQbm1r_aZIHIvcdAzpCVe_F4fl2U",
         {
           method: "POST",
-          body: JSON.stringify(value),
+          body: JSON.stringify(values),
           headers: {
             "Content-type": "application/json",
           },
         }
       );
       const result = await response.json();
-      console.log("API Response", result);
+      console.log("API Response", response);
       if (response.ok) {
         resetForm();
         setSelectedState("");
