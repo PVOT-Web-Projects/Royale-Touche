@@ -964,7 +964,7 @@ const Contactform = () => {
       validationSchema: ContactFormSchemas,
       onSubmit: (value, action) => {
         handleSubmitForm(value, resetForm);
-        action.resetForm();
+        action.resetForm();             
         console.log("values", value);
         // emailjs
         //   .send(
