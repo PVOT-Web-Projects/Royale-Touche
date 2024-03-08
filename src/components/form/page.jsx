@@ -942,7 +942,7 @@ const Contactform = () => {
           },
         }
       );
-      const result = await response.json();
+      const result = await response.statusText;
       console.log("API Response", response);
       if (response.ok) {
         resetForm();
