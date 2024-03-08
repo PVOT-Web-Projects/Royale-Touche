@@ -55,70 +55,6 @@ const Contactform = () => {
     { value: "Puducherry", label: "Puducherry" },
   ];
 
-  // const yearOptions = [
-  //   { value: "Ahmedabad", label: "Ahmedabad" },
-  //   { value: "Amreli", label: "Amreli" },
-  //   { value: "Anand", label: "Anand" },
-  //   { value: "Banaskantha", label: "Banaskantha" },
-  //   { value: "Bhavnagar", label: "Bhavnagar" },
-  //   { value: "Dahod", label: "Dahod" },
-  //   { value: "Dang", label: "Dang" },
-  //   { value: "Gandhinagar", label: "Gandhinagar" },
-  //   { value: "Godhara", label: "Godhara" },
-  //   { value: "Jamnagar", label: "Jamnagar" },
-  //   { value: "Junagadh", label: "Junagadh" },
-  //   { value: "Kheda", label: "Kheda" },
-  //   { value: "Kutch", label: "Kutch" },
-  //   { value: "Mahesana", label: "Mahesana" },
-  //   { value: "Narmada", label: "Narmada" },
-  //   { value: "Navsari", label: "Navsari" },
-  //   { value: "Patan", label: "Patan" },
-  //   { value: "Porbandar", label: "Porbandar" },
-  //   { value: "Rajkot", label: "Rajkot" },
-  //   { value: "Sabarkantha", label: "Sabarkantha" },
-  //   { value: "Surat", label: "Surat" },
-  //   { value: "Surendranagar", label: "Surendranagar" },
-  //   { value: "Vadodara", label: "Vadodara" },
-  //   { value: "Valsad", label: "Valsad" },
-  //   { value: "Tapi", label: "Tapi" },
-  //   { value: "Navsari", label: "Navsari" },
-  //   { value: "Pune", label: "Pune" },
-  //   { value: "Nagpur", label: "Nagpur" },
-  //   { value: "Mumbai", label: "Mumbai" },
-  //   { value: "Maharastra", label: "Maharastra" },
-  //   { value: "Rajasthan", label: "Rajasthan" },
-  //   { value: "Delhi", label: "Delhi" },
-  //   { value: "Kerela", label: "Kerela" },
-  //   { value: "Kolkata", label: "Kolkata" },
-  //   { value: "Jaipur", label: "Jaipur" },
-  //   { value: "Goa", label: "Goa" },
-  //   { value: "Karnataka", label: "Karnataka" },
-  //   { value: "BHOPAL", label: "BHOPAL" },
-  //   { value: "Ujjain", label: "Ujjain" },
-  //   { value: "Jagatpur", label: "Jagatpur" },
-  //   { value: "Jaipur", label: "Jaipur" },
-  //   { value: "Tripura", label: "Tripura" },
-  //   { value: "Mirzapur", label: "Mirzapur" },
-  //   { value: "Mathura", label: "Mathura" },
-  //   { value: "Patna", label: "Patna" },
-  //   { value: "Raipur", label: "Raipur" },
-  //   { value: "Kota", label: "Kota" },
-  //   { value: "Rohini", label: "Rohini" },
-  //   { value: "Ranchi", label: "Ranchi" },
-  //   { value: "Nepal", label: "Nepal" },
-  //   { value: "Chennai", label: "Chennai" },
-  //   { value: "Odisha", label: "Odisha" },
-  //   { value: "Lucknow", label: "Lucknow" },
-  //   { value: "Odisha", label: "Odisha" },
-  //   { value: "Assam", label: "Assam" },
-  //   { value: "Rewa", label: "Rewa" },
-  //   { value: "Solapur", label: "Solapur" },
-  //   { value: "Mansa", label: "Mansa" },
-  //   { value: "Jaisalmer", label: "Jaisalmer" },
-  //   { value: "Udaipur", label: "Udaipur" },
-  //   { value: "Hyderabad", label: "Hyderabad" },
-  // ];
-
   const handleStateChange = (selectedOption) => {
     setSelectedState(selectedOption);
     setFieldValue("state", selectedOption.value);
@@ -993,19 +929,9 @@ const Contactform = () => {
   const submitMessage = () => {
     toast.success("Form Submitted Successfully...");
   };
-  // const webSocket = () => {
-  //   const newSocket = new WebSocket("https://prod-14.centralindia.logic.azure.com/workflows/171dcbea9b1148e88514788a30bc1718/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=52ykqTmRHPECU-KMQbm1r_aZIHIvcdAzpCVe_F4fl2U");
-  //   newSocket.onopen = () => console.log("WS Connected");
-  //   newSocket.onclose = () => console.log("WS Disconnected");
-  //   newSocket.onerror = (err) => console.log("WS Error");
-  //   newSocket.onmessage = (e) => {
-  //     const data = JSON.parse(values);
-  //     console.log("WS Receives: ", data);
-  //   };
-  // };
 
-  const handleSubmitForm = async (value) => {
-    console.log("API Value", value);
+  const handleSubmitForm = async (values) => {
+    console.log(values);
     try {
       const response = await fetch(
         "https://prod-14.centralindia.logic.azure.com/workflows/171dcbea9b1148e88514788a30bc1718/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=52ykqTmRHPECU-KMQbm1r_aZIHIvcdAzpCVe_F4fl2U",
@@ -1019,25 +945,55 @@ const Contactform = () => {
       );
       const result = await response.json();
       console.log("API Response", result);
-    } catch (error) {
-      console.error(error);
+      if (response.ok) {
+        resetForm();
+        setSelectedState("");
+        setCities([]);
+        toast.success("Email sent successfully");
+      } else {
+        console.error("API Error:", result);
+      }
+    } catch (e) {
+      console.error("error", e);
     }
   };
 
-
-  const { values, errors, touched, handleChange, handleSubmit, setFieldValue } =
-    useFormik({
-      initialValues: initialValue,
-      validationSchema: ContactFormSchemas,
-      onSubmit: (value, action) => {
-        handleSubmitForm(value);
-        action.resetForm();
-        console.log("values", value);       
-        submitMessage();
-        action.resetForm();
-        console.log("FINALVALUE", value);
-      },
-    });
+  const {
+    values,
+    errors,
+    touched,
+    handleChange,
+    handleSubmit,
+    setFieldValue,
+    resetForm,
+  } = useFormik({
+    initialValues: initialValue,
+    validationSchema: ContactFormSchemas,
+    onSubmit: (value, action) => {
+      handleSubmitForm(value);
+      action.resetForm();
+      console.log("values", value);
+      // emailjs
+      //   .send(
+      //     "service_6pitte7",
+      //     "template_azgm81o",
+      //     values,
+      //     "dp6xvACY2kw4Z6gwc"
+      //   )
+      //   .then((response) => {
+      //     console.log("Email sent successfully:", response);
+      //     setFormResponse(response);
+      //     action.resetForm();
+      //     // resetForm();
+      //   })
+      //   .catch((error) => {
+      //     console.error("Email send error:", error);
+      //   });
+      submitMessage();
+      action.resetForm();
+      console.log("FINALVALUE", value);
+    },
+  });
 
   console.log("value", values);
   console.log("response", formResponse.text);
@@ -1158,23 +1114,23 @@ const Contactform = () => {
             </div>
             <div className={styles.common_button_outer2}>
               <Button btn_text="Send Message" />
-              {formResponse.text === "OK" && (
-                <ToastContainer
-                  position="top-right"
-                  autoClose={3000}
-                  hideProgressBar={false}
-                  newestOnTop={false}
-                  closeOnClick={true}
-                  rtl={false}
-                  pauseOnFocusLoss={false}
-                  draggable={false}
-                  pauseOnHover={false}
-                  theme="light"
-                  transition={Slide}
-                  className={"contactFormNotification"}
-                  // progressStyle={{ background: "#f90" }}
-                />
-              )}
+              {/* {formResponse.text === "OK" && ( */}
+              <ToastContainer
+                position="top-right"
+                autoClose={3000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick={true}
+                rtl={false}
+                pauseOnFocusLoss={false}
+                draggable={false}
+                pauseOnHover={false}
+                theme="light"
+                transition={Slide}
+                className={"contactFormNotification"}
+                // progressStyle={{ background: "#f90" }}
+              />
+              {/* )} */}
             </div>
           </div>
         </form>
