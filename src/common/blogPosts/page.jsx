@@ -7,7 +7,7 @@ import Data from "@/common/blogPosts/data";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
 
-const BlogPost = ({ readMoreRoute, title }) => {
+const BlogPost = ({ readMoreRoute }) => {
   const router = useRouter();
 
   const handleReadMoreClick = (route) => {

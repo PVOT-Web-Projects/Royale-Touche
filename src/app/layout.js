@@ -77,15 +77,15 @@ export default function RootLayout({ children }) {
         </noscript>
         {/* <!-- End Google Tag Manager (noscript) --> */}
 
-        <script
+        {/* <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        ></script>
+        ></script> */}
 
-        <script
+        {/* <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd2) }}
-        ></script>
+        ></script> */}
 
         {children}
       </body>
