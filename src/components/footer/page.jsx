@@ -48,7 +48,7 @@ const Page = () => {
             className={styles.footer_upper_heading}
           />
         </motion.div>
-        {location != "/contact-us" && (
+        {location != "/contactUs" && (
           <div className={styles.justforfooterbutton}>
             <Button btn_text="Contact Us" />
           </div>

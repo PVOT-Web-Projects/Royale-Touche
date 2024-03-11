@@ -22,7 +22,6 @@ const BlogPost = ({ readMoreRoute }) => {
   const projectsRef = useRef(null);
 
   useEffect(() => {
-    // document.title = Data.map((item) => item.title);
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
     setDisplayedData(Data.slice(startIndex, endIndex));

@@ -7,8 +7,8 @@ import Preloader from "@/components/preloader/page";
 import Blogs_banner from "@/images/Blog_Banner.jpg";
 import Blogs_banner_mobile from "@/images/blogs_mobile.png";
 import BlogPost from "@/common/blogPosts/page";
-import styles from "@/app/Blogs/blogs.module.css";
-const Page = () => {
+import styles from "@/app/Blogs/blogs.module.css"
+const Blogs = () => {
   // document.title="Blogs - Royale Touch Performance Ply";
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
@@ -32,14 +32,11 @@ const Page = () => {
       <AnimatePresence mode="wait">
         {isLoading && <Preloader />}
       </AnimatePresence>
-      <div className={styles.banner_img_desktop}>
-        <Inner_header inner_header_image={Blogs_banner} heading_big="BLOGS" />
+    <div className={styles.banner_img_desktop}>
+      <Inner_header inner_header_image={Blogs_banner} heading_big="BLOGS" />
       </div>
       <div className={styles.blogs_banner_img}>
-        <Inner_header
-          inner_header_image={Blogs_banner_mobile}
-          heading_big="BLOGS"
-        />
+      <Inner_header inner_header_image={Blogs_banner_mobile} heading_big="BLOGS" />
       </div>
       <BlogPost />
       <Footer />
@@ -47,4 +44,4 @@ const Page = () => {
   );
 };
 
-export default Page;
+export default Blogs;

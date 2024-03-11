@@ -10,7 +10,7 @@ import { AnimatePresence } from "framer-motion";
 import Preloader from "@/components/preloader/page";
 import HeroSection from "@/components/Hero_ContactUs/page";
 import ContactAddress from "@/components/contactAddress/Page";
-const Page = () => {
+const ContactUs = () => {
   useEffect(() => {
     document.title = "Contact Us | Royale Touche Plywood";
   }, []);
@@ -53,4 +53,4 @@ const Page = () => {
   );
 };
 
-export default Page;
+export default ContactUs;

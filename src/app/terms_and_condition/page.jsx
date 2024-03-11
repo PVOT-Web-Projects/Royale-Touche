@@ -10,7 +10,7 @@ import Claim_banner from "@/images/claim_banner.png";
 const Page = () => {
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
-    document.title = "Treams & Conditions | Royale Touche Plywood";
+    document.title = "Terms & Conditions | Royale Touche Plywood";
     (async () => {
       const LocomotiveScroll = (await import("locomotive-scroll")).default;
       const locomotiveScroll = new LocomotiveScroll();
@@ -105,13 +105,13 @@ const Page = () => {
               thereafter send it for physical/ chemical examination to any of
               the following places:
               <ul className={styles.list}>
-                <p> a. Royalé Touché laboratory</p>
-                <p> b. All nationally renowned laboratories including:</p>
-                <div className={styles.list12}>
-                  <li>a. National Test House</li>
-                  <li>b. Shriram Test House, Delhi</li>
-                  <li>c. B.I.S.</li>
-                  <li>d. Other government recognised laboratories</li>
+               <p> a. Royalé Touché laboratory</p>
+               <p> b. All nationally renowned laboratories including:</p>
+               <div className={styles.list12}>
+                <li >a. National Test House</li>
+                <li>b. Shriram Test House, Delhi</li>
+                <li>c. B.I.S.</li>
+                <li>d. Other government recognised laboratories</li>
                 </div>
               </ul>
             </p>
@@ -142,9 +142,10 @@ const Page = () => {
             </p>
           </div>
 
+          
           <div className={styles.description}>
             <p>
-              10. Notwithstanding what has been stated hereinabove, this
+              10.  Notwithstanding what has been stated hereinabove, this
               warranty shall not be applicable to and shall exclude the
               following:
               <ul className={styles.list}>
@@ -259,6 +260,7 @@ const Page = () => {
             </p>
           </div> */}
 
+
           {/* <p>Attach image of board</p> */}
 
           <div className={styles.description}>
@@ -317,6 +319,7 @@ const Page = () => {
         </div>
       </div>
       <Footer />
+      
     </div>
   );
 };
