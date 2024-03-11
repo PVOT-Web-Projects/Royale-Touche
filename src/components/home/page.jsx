@@ -11,9 +11,9 @@ import Form from "@/components/form/page";
 import Navbar from "@/components/navbar/index";
 import HomeStore from "@/components/homeStore/page";
 import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
-import Lenis from "@studio-freight/lenis";
-import { useLayoutEffect } from "react";
+// import ScrollTrigger from "gsap/ScrollTrigger";
+// import Lenis from "@studio-freight/lenis";
+// import { useLayoutEffect } from "react";
 import "./homeParallax.css";
 
 const Page = ({ lData }) => {
