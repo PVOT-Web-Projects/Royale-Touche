@@ -4,7 +4,7 @@ import { AnimatePresence } from "framer-motion";
 import Preloader from "@/components/preloader/page";
 import Footer from "@/components/footer/page";
 import Navbar from "@/components/navbar/index";
-import styles from "@/app/terms-and-condition/terms.module.css";
+import styles from "@/app/terms_and_condition/terms.module.css";
 import Inner_header from "@/common/inner_header/page";
 import Claim_banner from "@/images/claim_banner.png";
 const Page = () => {
