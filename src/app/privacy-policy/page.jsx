@@ -5,19 +5,18 @@ import { AnimatePresence } from "framer-motion";
 import Inner_header from "@/common/inner_header/page";
 import Preloader from "@/components/preloader/page";
 import Claim_banner from "@/images/claim_banner.png";
-import WarrantyForm from "@/components/warrantyForm/page";
-// import WarrantyAccordian from "@/components/warrantyAccordian/page";
-const Blogs = () => {
+import PolicyData from "@/components/policyData/page";
+const Page = () => {
   useEffect(() => {
-    document.title = "Claim Warranty for Product";
+    document.title = "Privacy Policy | Royale Touche Plywood";
   }, []);
   const [isLoading, setIsLoading] = useState(true);
-  // useEffect(() => {
-  //   (async () => {
-  //     const LocomotiveScroll = (await import("locomotive-scroll")).default;
-  //     const locomotiveScroll = new LocomotiveScroll();
-  //   })();
-  // }, []);
+  useEffect(() => {
+    (async () => {
+      const LocomotiveScroll = (await import("locomotive-scroll")).default;
+      const locomotiveScroll = new LocomotiveScroll();
+    })();
+  }, []);
 
   setTimeout(() => {
     setIsLoading(false);
@@ -33,13 +32,13 @@ const Blogs = () => {
       </AnimatePresence>
       <Inner_header
         inner_header_image={Claim_banner}
-        heading_big="CLAIM WARRANTY"
+        heading_big="PRIVACY POLICY"
       />
-      <WarrantyForm />
-      {/* <WarrantyAccordian /> */}
+      <PolicyData />
+
       <Footer />
     </main>
   );
 };
 
-export default Blogs;
+export default Page;

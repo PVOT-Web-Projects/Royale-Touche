@@ -140,7 +140,7 @@ const SpecificationsRightData = [
 
 const Page = () => {
   useEffect(() => {
-    document.title = "Plywood";
+    document.title = "Buy Plywood Sheet Online | Ply Board - Royale Touche Plywood ";
   }, []);
   const [isLoading, setIsLoading] = useState(true);
   // useEffect(() => {

@@ -20,13 +20,13 @@ const Page = ({ lData }) => {
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
       // lenis integration for smooth scroll
-      const lenis = new Lenis();
-      function raf(time) {
-        lenis.raf(time);
-        ScrollTrigger.update();
-        requestAnimationFrame(raf);
-      }
-      requestAnimationFrame(raf);
+      // const lenis = new Lenis();
+      // function raf(time) {
+      //   lenis.raf(time);
+      //   ScrollTrigger.update();
+      //   requestAnimationFrame(raf);
+      // }
+      // requestAnimationFrame(raf);
       // card parallax effect
       const cards = document.querySelectorAll(".card");
       cards.forEach((card) => {

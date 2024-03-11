@@ -759,7 +759,7 @@ const FormCommon = () => {
                   className={styles.forms_terms_condition}
                   // onClick={() => router.push("/terms_and_condition")}
                 >
-                  <Link href="/terms_and_condition" target="_blank">
+                  <Link href="/terms-and-condition" target="_blank">
                     Terms And Conditions
                   </Link>
                 </span>

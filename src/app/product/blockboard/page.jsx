@@ -119,9 +119,9 @@ const SpecificationsRightData = [
 ];
 
 const Page = () => {
-  // useEffect(() => {
-  //   document.title = "Blockboard";
-  // }, []);
+  useEffect(() => {
+    document.title = "Buy Blockbaord & Blockwood Online - Royale Touche Plywood";
+  }, []);
   const [isLoading, setIsLoading] = useState(true);
   // useEffect(() => {
   //   (async () => {

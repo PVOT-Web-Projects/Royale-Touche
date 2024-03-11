@@ -14,7 +14,7 @@ const navItems = [
   },
   {
     title: "About Us",
-    href: "/aboutUs",
+    href: "/about-us",
   },
   {
     title: "Innovation",
@@ -26,15 +26,15 @@ const navItems = [
   },
   {
     title: "Find Store",
-    href: "/findStore",
+    href: "/find-store",
   },
   {
     title: "Blogs",
-    href: "/Blogs",
+    href: "/blogs",
   },
   {
     title: "Contact Us",
-    href: "/contactUs",
+    href: "/contact-us",
   },
 ];
 
