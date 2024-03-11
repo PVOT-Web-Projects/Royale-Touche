@@ -7,7 +7,7 @@ import Data from "@/common/blogPosts/data";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
 
-const BlogPost = ({ readMoreRoute }) => {
+const BlogPost = ({ readMoreRoute, title }) => {
   const router = useRouter();
 
   const handleReadMoreClick = (route) => {
@@ -22,6 +22,7 @@ const BlogPost = ({ readMoreRoute }) => {
   const projectsRef = useRef(null);
 
   useEffect(() => {
+    // document.title = Data.map((item) => item.title);
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
     setDisplayedData(Data.slice(startIndex, endIndex));

@@ -14,6 +14,7 @@ import BlogPostImage14 from "@/images/blogs_imgs_14.jpg"
 
 const Data = [
     {
+        title:"5 Advantage Why To Choose Waterproof Plywood - Royale Touche Plywood Blogs",
         image: BlogPostImage7,
         date: "January 11, 2024",
         blog_name: "Interior Design1",
@@ -22,6 +23,7 @@ const Data = [
         readMoreRoute: "/allPosts/post1",
     },
     {
+        title:"5 Tips on How To Maintain Plywood Sheets - Royale Touche Plywood Blogs",
         image: BlogPostImage14,
         date: "March 20, 2024",
         blog_name: "Interior Design2",
@@ -30,6 +32,7 @@ const Data = [
         readMoreRoute: "/allPosts/post2",
     },
     {
+        title:"7 Easy Ways To Clean Plywood Furniture - Royale Touche Plywood Blogs",
         image: BlogPostImage1,
         date: "March 20, 2024",
         blog_name: "Interior Design3",
@@ -39,6 +42,7 @@ const Data = [
     },
 
     {
+        title:"Types Of Plywood Size & What Are The Difference - Royale Touche Plywood Blogs",
         image: BlogPostImage13,
         date: "January 11, 2024",
         blog_name: "Interior Design4",
@@ -47,6 +51,7 @@ const Data = [
         readMoreRoute: "/allPosts/post4",
     },
     {
+        title:"101 Plywoods: Everything Knows About Plywood - Royale Touche Plywood Blogs",
         image: BlogPostImage2,
         date: "March 20, 2024",
         blog_name: "Interior Design5",
@@ -55,6 +60,7 @@ const Data = [
         readMoreRoute: "/allPosts/post5",
     },
     {
+        title:"Fire Resistant Plywood: Things You Should Know - Royale Touche Plywood Blogs",
         image: BlogPostImage6,
         date: "March 20, 2024",
         blog_name: "Interior Design6",
@@ -63,6 +69,7 @@ const Data = [
         readMoreRoute: "/allPosts/post6",
     },
     {
+        title:"How To Choose Best Plywood For Interiors - Royale Touche Plywood Blogs",
         image: BlogPostImage8,
         date: "March 20, 2024",
         blog_name: "Interior Design7",
@@ -72,6 +79,7 @@ const Data = [
     },
 
     {
+        title:"How To Choose High Quality Plywoods For Furniture - Royale Touche Plywood Blogs",
         image: BlogPostImage3,
         date: "March 20, 2023",
         blog_name: "Interior Design8",
@@ -81,6 +89,7 @@ const Data = [
     },
 
     {
+        title:"Kitchen Plywood: Which Plywood Is Best For Modular Kitchen - Royale Touche Plywood Blogs",
         image: BlogPostImage4,
         date: "March 20, 2024",
         blog_name: "Interior Design9",
@@ -90,6 +99,7 @@ const Data = [
     },
 
     {
+        title:"Know Everything About Veneer Plywood - Royale Touche Plywood Blogs",
         image: BlogPostImage5,
         date: "March 20, 2024",
         blog_name: "Interior Design10",
@@ -100,6 +110,7 @@ const Data = [
 
 
     {
+        title:"Make Your Furniture Strong Using Termite Resistant Plywood - Royale Touche Plywood Blogs",
         image: BlogPostImage11,
         date: "March 20, 2024",
         blog_name: "Interior Design11",
@@ -110,6 +121,7 @@ const Data = [
 
 
     {
+        title:"What Is Commercial Plywood? - Royale Touche Plywood Blogs",
         image: BlogPostImage12,
         date: "March 20, 2024",
         blog_name: "Interior Design12",

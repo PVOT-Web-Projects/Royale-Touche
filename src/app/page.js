@@ -7,7 +7,7 @@ import Home from "@/components/home/page";
 export default function Page() {
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
-    document.title = "Royale Touche Performance Ply";
+    document.title = "Buy Plywood & Blockboard Online | Plywood Manufacturer in India - Royale Touche Plywood";
   }, []);
 
   // useEffect(() => {

@@ -11,7 +11,7 @@ import findStore_image from "@/images/new_channel.png";
 import HeroSection from "@/components/heroSection/page";
 const Page = () => {
   useEffect(() => {
-    document.title = "Find Nearest Plywood Store";
+    document.title = "Check out our Plywood Store in India | Royale Touche Plywood";
   }, []);
   const [isLoading, setIsLoading] = useState(true);
   // useEffect(() => {

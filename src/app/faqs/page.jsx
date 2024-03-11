@@ -8,7 +8,7 @@ import Claim_banner from "@/images/claim_banner.png";
 import Faqs_page from "@/components/faqs_page/page";
 const Page = () => {
   useEffect(() => {
-    document.title = "FAQs";
+    document.title = "FAQ | Royale Touche Plywood ";
   }, []);
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
