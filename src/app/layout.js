@@ -66,17 +66,14 @@ export default function RootLayout({ children }) {
       </head>
 
       <body className={lato.className}>
-        {/* <!-- Google Tag Manager (noscript) --> */}
         <noscript>
           <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-W6VNSPT6"
             height="0"
             width="0"
-            style="display:none;visibility:hidden"
+            style={{ display: "none", visibility: "hidden" }}
           ></iframe>
         </noscript>
-        {/* <!-- End Google Tag Manager (noscript) --> */}
-
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -86,7 +83,6 @@ export default function RootLayout({ children }) {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd2) }}
         ></script>
-
         {children}
       </body>
     </html>

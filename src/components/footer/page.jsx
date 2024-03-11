@@ -48,7 +48,7 @@ const Page = () => {
             className={styles.footer_upper_heading}
           />
         </motion.div>
-        {location != "/contact-us" && (
+        {location != "/contactUs" && (
           <div className={styles.justforfooterbutton}>
             <Button btn_text="Contact Us" />
           </div>
@@ -68,13 +68,13 @@ const Page = () => {
           <div className={styles.footer_titles}>{"INFORMATION"}</div>
           <ul className={styles.footer_headers}>
             <li className={styles.footer_item_list}>
-              <Link href="/about-us">{"About us"}</Link>
+              <Link href="/aboutUs">{"About us"}</Link>
             </li>
             <li className={styles.footer_item_list}>
-              <Link href="/find-store">{"Find Nearest Store"}</Link>
+              <Link href="/findStore">{"Find Nearest Store"}</Link>
             </li>
             <li className={styles.footer_item_list}>
-              <Link href="/blogs">{"Blogs"}</Link>
+              <Link href="/Blogs">{"Blogs"}</Link>
             </li>
           </ul>
         </div>
@@ -83,11 +83,11 @@ const Page = () => {
           <div className={styles.footer_titles}>{"HELP"}</div>
           <ul className={styles.footer_headers}>
             <li className={styles.footer_item_list}>
-              <Link href="/privacy-policy">{"Privacy policy"}</Link>
+              <Link href="/privacyPolicy">{"Privacy policy"}</Link>
             </li>
 
             <li className={styles.footer_item_list}>
-              <Link href="/claim-warranty">{"Claim warranty"}</Link>
+              <Link href="/claimWarranty">{"Claim warranty"}</Link>
             </li>
             <li className={styles.footer_item_list}>
               <Link href="/contactUs">{"Contact us"}</Link>

@@ -6,7 +6,7 @@ import Inner_header from "@/common/inner_header/page";
 import Preloader from "@/components/preloader/page";
 import Claim_banner from "@/images/claim_banner.png";
 import PolicyData from "@/components/policyData/page";
-const Page = () => {
+const Blogs = () => {
   useEffect(() => {
     document.title = "Privacy Policy | Royale Touche Plywood";
   }, []);
@@ -41,4 +41,4 @@ const Page = () => {
   );
 };
 
-export default Page;
+export default Blogs;

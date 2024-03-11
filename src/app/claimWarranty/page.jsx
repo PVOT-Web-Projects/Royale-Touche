@@ -7,7 +7,7 @@ import Preloader from "@/components/preloader/page";
 import Claim_banner from "@/images/claim_banner.png";
 import WarrantyForm from "@/components/warrantyForm/page";
 // import WarrantyAccordian from "@/components/warrantyAccordian/page";
-const Page = () => {
+const Blogs = () => {
   useEffect(() => {
     document.title = "Claim Warranty | Royale Touche Plywood";
   }, []);
@@ -42,4 +42,4 @@ const Page = () => {
   );
 };
 
-export default Page;
+export default Blogs;

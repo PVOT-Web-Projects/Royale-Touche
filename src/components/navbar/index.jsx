@@ -8,11 +8,10 @@ import { usePathname } from "next/navigation";
 export default function Home() {
   const [isActive, setIsActive] = useState(false);
   const pathname = usePathname();
-  console.log("menu", isActive);
-
+  console.log("loading", isActive);
+ 
   useEffect(() => {
     // if (isActive) setIsActive(false);
-
     if (isActive) {
       document.body.style.overflow = "hidden";
     }
