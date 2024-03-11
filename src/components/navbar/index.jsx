@@ -13,13 +13,13 @@ export default function Home() {
   useEffect(() => {
     // if (isActive) setIsActive(false);
 
-    if (isActive) {
-      document.body.style.overflow = "hidden";
-    }
-    if (isActive === false) {
-      document.body.style.overflow="unset"
-      // document.body.style.overflowX = "hidden";
-    }
+    // if (isActive) {
+    //   document.body.style.overflow = "hidden";
+    // }
+    // if (isActive === false) {
+    //   document.body.style.overflow="unset"
+    //   // document.body.style.overflowX = "hidden";
+    // }
   }, [pathname, isActive]);
 
   return (

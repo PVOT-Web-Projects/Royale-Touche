@@ -129,7 +129,7 @@ const BlogPost = ({ readMoreRoute }) => {
         </Stack>
       </div>
 
-      <div style={{ background: "white", height: 100+"px" }}></div>
+      <div style={{ background: "white", height: "100px" }}></div>
     </div>
   );
 };
