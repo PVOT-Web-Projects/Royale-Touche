@@ -70,4 +70,5 @@ const Page = ({ lData }) => {
     </div>
   );
 };
+
 export default Page;
