@@ -11,6 +11,7 @@ import innovation_image_mobile from "@/images/inn_banner_new.png";
 import { AnimatePresence } from "framer-motion";
 import Preloader from "@/components/preloader/page";
 import styles from "@/app/innovation/innovation.module.css";
+import "./innovationMobileBanner.css"
 const Page = () => {
   useEffect(() => {
     document.title = "Innovation - Royale Touch Performance Ply";
@@ -32,7 +33,7 @@ const Page = () => {
             heading_big="INNOVATION"
           />
         </div>
-        <div className={styles.innovation_mobile}>
+        <div className={`${styles.innovation_mobile} innovationBannerMobile`}>
           <Inner_header
             inner_header_image={innovation_image_mobile}
             heading_big="INNOVATION"

@@ -91,7 +91,7 @@ const Page = (props) => {
             {props.heading && splitWords(props.heading)}
           </div>
           <div className={styles.inner_header_t2}>{props.heading2}</div>
-          <div className={styles.inner_header_big}>{props.heading_big}</div>
+          <div className={`${styles.inner_header_big} bannerHeading`}>{props.heading_big}</div>
         </div>
       </div>
       <div className={styles.home_nav_setting}>
