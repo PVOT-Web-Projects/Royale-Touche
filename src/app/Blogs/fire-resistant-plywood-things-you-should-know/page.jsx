@@ -4,7 +4,7 @@ import Navbar from "@/components/navbar/index";
 import Footer from "@/components/footer/page"
 import Image from "next/image";
 import logo from "@/images/finalNavbarLogo.png";
-import ".commonstyles.css"
+import ".././commonstyles.css"
 import { useRouter } from "next/navigation";
 import { AnimatePresence } from "framer-motion";
 import Preloader from "@/components/preloader/page";

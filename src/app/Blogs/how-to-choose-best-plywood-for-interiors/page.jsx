@@ -5,7 +5,7 @@ import Navbar from "@/components/navbar/index";
 import Image from "next/image";
 import logo from "@/images/finalNavbarLogo.png";
 import { useRouter } from "next/navigation";
-import "./commonstyles.css"
+import ".././commonstyles.css"
 import { AnimatePresence } from "framer-motion";
 import Preloader from "@/components/preloader/page";
 import InnerBlogPost from "@/common/innerBlogPost/page";
