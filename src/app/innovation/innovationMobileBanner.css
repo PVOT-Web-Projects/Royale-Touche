@@ -3,4 +3,9 @@
     top: 10rem !important;
   }
 }
+@media (max-width: 375px) {
+  .innovationBannerMobile .bannerHeading {
+    top: 11rem !important;
+  }
+}
 
