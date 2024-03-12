@@ -1,11 +1,13 @@
 @media (max-width: 575px) {
   .innovationBannerMobile .bannerHeading {
-    top: 10rem !important;
+    top: auto !important;
+    bottom: -2rem;
   }
 }
 @media (max-width: 375px) {
   .innovationBannerMobile .bannerHeading {
-    top: 11rem !important;
+    top: auto !important;
+    bottom: -2rem;
   }
 }
 
