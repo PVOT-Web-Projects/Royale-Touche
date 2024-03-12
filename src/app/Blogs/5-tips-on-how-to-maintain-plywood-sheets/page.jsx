@@ -5,7 +5,7 @@ import Footer from "@/components/footer/page"
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import logo from "@/images/finalNavbarLogo.png";
-import "@/app/allPosts/commonstyles.css"
+import "@/app/blogs/commonstyles.css"
 import { AnimatePresence } from "framer-motion";
 import Preloader from "@/components/preloader/page";
 import InnerBlogPost from "@/common/innerBlogPost/page"
@@ -16,6 +16,8 @@ const Page = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    document.title = "5 Tips on How To Maintain Plywood Sheets - Royale Touche Plywood Blogs";
+
     (async () => {
       const LocomotiveScroll = (await import("locomotive-scroll")).default;
       const locomotiveScroll = new LocomotiveScroll();

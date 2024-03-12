@@ -5,7 +5,7 @@ import Footer from "@/components/footer/page"
 import Image from "next/image";
 import logo from "@/images/finalNavbarLogo.png";
 import { useRouter } from "next/navigation";
-import "@/app/allPosts/commonstyles.css"
+import "@/app/blogs/commonstyles.css"
 import { AnimatePresence } from "framer-motion";
 import Preloader from "@/components/preloader/page";
 import InnerBlogPost from "@/common/innerBlogPost/page";
@@ -15,6 +15,8 @@ const Page = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    document.title = "101 Plywoods: Everything Knows About Plywood - Royale Touche Plywood Blogs";
+
     (async () => {
       const LocomotiveScroll = (await import("locomotive-scroll")).default;
       const locomotiveScroll = new LocomotiveScroll();
