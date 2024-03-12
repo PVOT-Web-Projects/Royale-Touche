@@ -9,7 +9,7 @@ import InnerBlogPost from "@/common/innerBlogPost/page";
 import BlogPostImage7 from "@/images/blogs_images_1.jpg";
 import Image from "next/image";
 import logo from "@/images/finalNavbarLogo.png";
-import "@/app/allPosts/commonstyles.css"
+import "@/app/blogs/commonstyles.css"
 const Page = () => {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(true);

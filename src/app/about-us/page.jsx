@@ -14,7 +14,7 @@ import OurStory from "@/components/ourStory/page";
 
 const Page = () => {
   useEffect(() => {
-    document.title = "Buy Plywood & Blockboard Online | Plywood Manufacturer in India - Royale Touche Plywood";
+    document.title = "About us | Royale Touche Plywood";
   }, []);
 
   const [isLoading, setIsLoading] = useState(true);

@@ -68,13 +68,13 @@ const Page = () => {
           <div className={styles.footer_titles}>{"INFORMATION"}</div>
           <ul className={styles.footer_headers}>
             <li className={styles.footer_item_list}>
-              <Link href="/aboutUs">{"About us"}</Link>
+              <Link href="/about-us">{"About us"}</Link>
             </li>
             <li className={styles.footer_item_list}>
-              <Link href="/findStore">{"Find Nearest Store"}</Link>
+              <Link href="/find-store">{"Find Nearest Store"}</Link>
             </li>
             <li className={styles.footer_item_list}>
-              <Link href="/Blogs">{"Blogs"}</Link>
+              <Link href="/blogs">{"Blogs"}</Link>
             </li>
           </ul>
         </div>
@@ -83,14 +83,14 @@ const Page = () => {
           <div className={styles.footer_titles}>{"HELP"}</div>
           <ul className={styles.footer_headers}>
             <li className={styles.footer_item_list}>
-              <Link href="/privacyPolicy">{"Privacy policy"}</Link>
+              <Link href="/privacy-policy">{"Privacy policy"}</Link>
             </li>
 
             <li className={styles.footer_item_list}>
-              <Link href="/claimWarranty">{"Claim warranty"}</Link>
+              <Link href="/claim-warranty">{"Claim warranty"}</Link>
             </li>
             <li className={styles.footer_item_list}>
-              <Link href="/contactUs">{"Contact us"}</Link>
+              <Link href="/contact-us">{"Contact us"}</Link>
             </li>
             <li className={styles.footer_item_list}>
               <Link href="/faqs">{"FAQ's"}</Link>

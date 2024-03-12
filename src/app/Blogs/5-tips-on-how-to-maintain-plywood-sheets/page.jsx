@@ -5,7 +5,7 @@ import Footer from "@/components/footer/page"
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import logo from "@/images/finalNavbarLogo.png";
-import "@/app/allPosts/commonstyles.css"
+import "@/app/blogs/commonstyles.css"
 import { AnimatePresence } from "framer-motion";
 import Preloader from "@/components/preloader/page";
 import InnerBlogPost from "@/common/innerBlogPost/page"
