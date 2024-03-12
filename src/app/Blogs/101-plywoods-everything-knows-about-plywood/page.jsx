@@ -15,6 +15,8 @@ const Page = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    document.title = "101 Plywoods: Everything Knows About Plywood - Royale Touche Plywood Blogs";
+
     (async () => {
       const LocomotiveScroll = (await import("locomotive-scroll")).default;
       const locomotiveScroll = new LocomotiveScroll();

@@ -138,7 +138,7 @@ const BlogPost = (props) => {
         <div className={styles.BlogPost_text_inner}>{props.blogPost_text22}</div>
         
         <button
-           onClick={()=> router.push("/Blogs")}               
+           onClick={()=> router.push("/blogs")}               
             className={styles.button9}
             role="button"
           >

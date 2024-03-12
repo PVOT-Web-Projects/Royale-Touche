@@ -15,6 +15,7 @@ const Page = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    document.title = "Kitchen Plywood: Which Plywood Is Best For Modular Kitchen - Royale Touche Plywood Blogs";
     (async () => {
       const LocomotiveScroll = (await import("locomotive-scroll")).default;
       const locomotiveScroll = new LocomotiveScroll();
