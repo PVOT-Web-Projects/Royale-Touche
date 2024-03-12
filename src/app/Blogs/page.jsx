@@ -7,7 +7,7 @@ import Preloader from "@/components/preloader/page";
 import Blogs_banner from "@/images/Blog_Banner.jpg";
 import Blogs_banner_mobile from "@/images/blogs_mobile.png";
 import BlogPost from "@/common/blogPosts/page";
-import styles from "@/app/blogs/blogs.module.css"
+import styles from "./blogs.module.css";
 const Blogs = () => {
   // document.title="Blogs - Royale Touch Performance Ply";
   const [isLoading, setIsLoading] = useState(true);
