@@ -13,7 +13,7 @@ import HomeStore from "@/components/homeStore/page";
 import gsap from "gsap";
 // import ScrollTrigger from "gsap/ScrollTrigger";
 // import Lenis from "@studio-freight/lenis";
-// import { useLayoutEffect } from "react";
+import { useLayoutEffect } from "react";
 import "./homeParallax.css";
 
 const Page = ({ lData }) => {
