@@ -1,8 +1,9 @@
 import React from 'react';
+import Image from 'next/image';
 const Card = ({ image, heading,date, content, buttonText,backgroundColor }) => {
   return (
     <div className="card" style={{backgroundColor}}>
-      <img src={image} alt="Card" />
+      <Image src={image} alt="Card" />
       <div className="cardcolor" >
       <p className='heading'>{heading}</p>
       <p className='date'>{date}</p>

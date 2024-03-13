@@ -60,7 +60,7 @@ const Page = ({ leftData, rightData }) => {
     if (inView) {
       controls.start("visible");
     }
-  }, [controlsLeft, controlsRight, inViewLeft, inViewRight, inView]);
+  }, [controls,controlsLeft, controlsRight, inViewLeft, inViewRight, inView]);
 
   const handleReadmore = () => {
     setReadmore(!readmore);
@@ -166,25 +166,7 @@ const Page = ({ leftData, rightData }) => {
           <Image src={spec_img} alt="image" className={styles.s} />
         </motion.div>
 
-        {/* <motion.div
-          ref={ref}
-          initial="hidden"
-          animate={controls}
-          variants={animationVariant}
-          className={styles.specifications_img1}
-        >
-          <Image src={spec_img} alt="image" className={styles.s} />
-        </motion.div> */}
-
-        {/* <motion.div
-          ref={ref}
-          initial="hidden"
-          animate={controls}
-          variants={animationVariant}
-          className={styles.specifications_img2}
-        >
-          <Image src={spec_img} alt="image" className={styles.s} />
-        </motion.div> */}
+      
       </div>
     </div>
   );
