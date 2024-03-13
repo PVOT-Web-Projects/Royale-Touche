@@ -5,7 +5,6 @@ import { useFormik } from "formik";
 import { useRouter } from "next/navigation";
 import { FormSchemas } from "@/components/warrantyForm/formSchema";
 import "./warrantyForm.css";
-import axios from "axios";
 import Image from "next/image";
 import emailjs from "@emailjs/browser";
 import invoice_icon from "@/images/invoice_svg.svg";
