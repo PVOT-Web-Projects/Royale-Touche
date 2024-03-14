@@ -32,6 +32,7 @@ export default function Page() {
 
   return (
     <main>
+     
       <AnimatePresence mode="wait">
         {isLoading && <Preloader />}
       </AnimatePresence>
