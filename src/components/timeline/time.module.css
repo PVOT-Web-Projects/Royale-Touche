@@ -336,6 +336,11 @@
   }
 
 }
+@media(max-height:665px){
+  .line{
+    bottom: 338px;
+  }
+}
 
 
 @media (max-width: 1440px) {

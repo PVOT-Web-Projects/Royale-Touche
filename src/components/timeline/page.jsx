@@ -27,15 +27,18 @@ const Home = ({loadUSP}) => {
 
     const windowWidth = window.innerWidth;
     const windowHeight = window.innerHeight;
-    let canvasHeight;
+    let canvasHeight = canvas.height
   
     // if (windowWidth >= 1700) {
     //   canvasHeight = 800; // Set height for large screens (>=1600px width)
     // } 
 
-    if (windowWidth >= 1690) {
+    if (windowWidth >= 1685) {
       canvasHeight = 700; // Set height for large screens (>=1600px width)
     } 
+    else if(windowWidth >= 1680){
+      canvasHeight = 670; // Set height for large screens (>=1600px width)
+    }
 
     else if (windowWidth >= 1600) {
       canvasHeight = 740; // Set height for medium screens (>=1200px width)

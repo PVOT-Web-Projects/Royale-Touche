@@ -29,9 +29,12 @@ const AirpodsAnimation = ({ loadImage }) => {
       const windowWidth = window.innerWidth;
       const windowHeight = window.innerHeight;
 
-      if (windowWidth >= 1600) {
+      if (windowWidth >= 1700) {
         canvas.width = 2000; // Width remains constant for desktop screens
         canvas.height = windowHeight * 1; // Adjust the height for desktop screens
+      } else if (windowWidth >= 1600) {
+        canvas.width = 1600; // Width remains constant for tablet screens
+        canvas.height = windowHeight * 1; // Adjust the height for tablet screens
       } else if (windowWidth >= 1599) {
         canvas.width = 1600; // Width remains constant for tablet screens
         canvas.height = windowHeight * 1; // Adjust the height for tablet screens
@@ -74,8 +77,8 @@ const AirpodsAnimation = ({ loadImage }) => {
       )
         .toString()
         .padStart(3, "0")}.jpg`;
-        // https://newroyaltouch.pvotdesigns.xyz/assets/images/compressed/factoryzoom/F000.jpg
-        // https://newroyaltouch.pvotdesigns.xyz/assets/images/Original/factoryzoom/F000.jpg
+    // https://newroyaltouch.pvotdesigns.xyz/assets/images/compressed/factoryzoom/F000.jpg
+    // https://newroyaltouch.pvotdesigns.xyz/assets/images/Original/factoryzoom/F000.jpg
     // https://newroyaltouch.pvotdesigns.xyz/assets/images/compressed/factoryzoom/F000.jpg
 
     // https://royaletouche.humbeestudio.xyz/wp-content/uploads/2024/02/00001-scaled.jpg
