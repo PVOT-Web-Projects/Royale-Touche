@@ -88,6 +88,8 @@ const FactoryWalk = ({ loadFacoryWalk }) => {
         .toString()
         .padStart(4, "0")}.jpg`;
 
+        // https://newroyaltouch.pvotdesigns.xyz/assets/images/compressed/factoryWalkDesktop/F0100.jpg
+
     // https://newroyaltouch.pvotdesigns.xyz/assets/images/compressed/walkdesktop/F0000.jpg
     // https://newroyaltouch.pvotdesigns.xyz/assets/images/Original/factorywalk/F0000.jpg
     // https://newroyaltouch.pvotdesigns.xyz/assets/images/compressed/walkdesktop/F0000.jpg
