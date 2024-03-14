@@ -48,13 +48,15 @@ const FactoryWalkMobile = ({ loadFacoryWalkMobile }) => {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
-    const frameCount = 1199;
+    const frameCount = 587;
     const currentFrame = (index) =>
-      `https://newroyaltouch.pvotdesigns.xyz/assets/images/compressed/walkmobile/F${(
+      `https://newroyaltouch.pvotdesigns.xyz/assets/images/compressed/factoryWalkMobile/F${(
         index + 0
       )
         .toString()
         .padStart(4, "0")}.jpg`;
+
+        // https://newroyaltouch.pvotdesigns.xyz/assets/images/compressed/factoryWalkMobile/F0000.jpg
 
     // https://newroyaltouch.pvotdesigns.xyz/assets/images/compressed/walkmobile/F0000.jpg
     // https://newroyaltouch.pvotdesigns.xyz/assets/images/Original/mobilewalk/F0000.jpg
