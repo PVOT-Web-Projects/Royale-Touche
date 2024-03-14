@@ -118,6 +118,7 @@ const Home = ({loadUSP}) => {
     }
     // const loadImages = async () => {
     //   try {
+      
     //     const loadImagePromises = imgL.map((imageUrl) => {
     //       return new Promise((resolve) => {
     //         const img = new Image();
