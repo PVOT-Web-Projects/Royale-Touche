@@ -44,7 +44,7 @@ const Page = () => {
       </div>
       <div className={styles.content}>
         <div className={styles.logo}>
-          <Image src={logo} />
+          <Image src={logo} alt="image" />
         </div>
         <div className={styles.thanksContent}>
           <h3 className={styles.thanksHeading}>

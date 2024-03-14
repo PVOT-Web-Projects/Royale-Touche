@@ -5,10 +5,7 @@ import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import spec_img from "@/images/BlockBoard_19mm.png";
 import spec_img1 from "@/images/Blockboard-Image.png";
-// import spec_img2 from "@/images/plywood thickness_25.png";
 import styles from "@/common/specifications/specifications.module.css";
-// import LeftContent from "@/common/specifications/data";
-// import RightContent from "@/common/specifications/data2";
 import Common_animation from "@/common/common_animation/animation";
 const Page = ({ leftData, rightData }) => {
   const [ref, inView] = useInView({ triggerOnce: true });
@@ -63,7 +60,7 @@ const Page = ({ leftData, rightData }) => {
     if (inView) {
       controls.start("visible");
     }
-  }, [controlsLeft, controlsRight, inViewLeft, inViewRight, inView]);
+  }, [controls,controlsLeft, controlsRight, inViewLeft, inViewRight, inView]);
 
   const handleReadmore = () => {
     setReadmore(!readmore);
@@ -159,15 +156,7 @@ const Page = ({ leftData, rightData }) => {
             </motion.div>
           </div>
         </div>
-        {/* <motion.div
-          ref={ref}
-          initial="hidden"
-          animate={controls}
-          variants={animationVariant}
-          className={styles.specifications_img}
-        >
-          <Image src={spec_img} alt="image" className={styles.s} />
-        </motion.div> */}
+       
 
         <motion.div
           ref={ref}

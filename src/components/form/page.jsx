@@ -1038,7 +1038,7 @@ const Contactform = () => {
                 onChange={handleChange}
                 value={values.PhoneNo}
                 pattern="\d{10}"
-                maxlength="10"
+                maxLength="10"
                 placeholder="8140X XXXXX"
               />
               {touched.PhoneNo ||
