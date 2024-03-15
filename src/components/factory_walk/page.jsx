@@ -80,13 +80,13 @@ const FactoryWalk = ({ loadFacoryWalk }) => {
     setCanvasSize();
     window.addEventListener("resize", setCanvasSize);
 
-    const frameCount = 1199;
+    const frameCount = 583;
     const currentFrame = (index) =>
-      `https://newroyaltouch.pvotdesigns.xyz/assets/images/compressed/walkdesktop/F${(
+      `https://newroyaltouch.pvotdesigns.xyz/assets/images/compressed/factoryWalkDesktop/F${(
         index + 0
       )
         .toString()
-        .padStart(4, "0")}.jpg`;
+        .padStart(3, "0")}.jpg`;
 
         // https://newroyaltouch.pvotdesigns.xyz/assets/images/compressed/factoryWalkDesktop/F0100.jpg
 
