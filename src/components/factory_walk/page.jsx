@@ -27,7 +27,7 @@ const FactoryWalk = ({ loadFacoryWalk }) => {
 
   const variants = {
     hidden: { opacity: 0, y: 5 }, // Move the button down initially
-    visible: { opacity: 1, y: -100 }, // Move the button up to its original position
+    visible: { opacity: 1, y: -120 }, // Move the button up to its original position
   };
 
   useEffect(() => {
