@@ -82,18 +82,14 @@ const FactoryWalk = ({ loadFacoryWalk }) => {
 
     const frameCount = 583;
     const currentFrame = (index) =>
-      `https://newroyaltouch.pvotdesigns.xyz/assets/images/compressed/factoryWalkDesktop/F${(
+      `https://plywoodassets.royaletouche.com/assets/compressed/factorywalkdesktop/F${(
         index + 0
       )
         .toString()
         .padStart(3, "0")}.jpg`;
-
+        // https://plywoodassets.royaletouche.com/assets/compressed/factorywalkdesktop/F000.jpg
         // https://newroyaltouch.pvotdesigns.xyz/assets/images/compressed/factoryWalkDesktop/F0100.jpg
 
-    // https://newroyaltouch.pvotdesigns.xyz/assets/images/compressed/walkdesktop/F0000.jpg
-    // https://newroyaltouch.pvotdesigns.xyz/assets/images/Original/factorywalk/F0000.jpg
-    // https://newroyaltouch.pvotdesigns.xyz/assets/images/compressed/walkdesktop/F0000.jpg
-    // https://royaletouche.humbeestudio.xyz/wp-content/uploads/2024/02/000001-scaled.jpg
     let imgL = [];
     for (let i = 0; i < frameCount; i++) {
       let img = new Image();

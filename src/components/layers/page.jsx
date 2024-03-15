@@ -120,12 +120,12 @@ const Airpods = ({loadLayer}) => {
 
     const frameCount = 350;
     const currentFrame = (index) =>
-      `https://newroyaltouch.pvotdesigns.xyz/assets/images/Original/plystack/${(
+      `https://plywoodassets.royaletouche.com/assets/compressed/layers/${(
         index + 1
       )
         .toString()
         .padStart(5, "0")}.jpg`;
-
+        // https://plywoodassets.royaletouche.com/assets/compressed/layers/00001.jpg
         // https://newroyaltouch.pvotdesigns.xyz/assets/images/Original/plystack/00001.jpg
         // https://newroyaltouch.pvotdesigns.xyz/assets/images/compressed/plystack/000.png
 

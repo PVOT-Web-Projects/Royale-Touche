@@ -98,17 +98,12 @@ const Home = ({loadUSP}) => {
     const frameCount = 483;
 
     const currentFrame = (index) =>
-      `https://newroyaltouch.pvotdesigns.xyz/assets/images/compressed/usp/F${(index + 1)
+      `https://plywoodassets.royaletouche.com/assets/compressed/usp/F${(index + 1)
         .toString()
         .padStart(4, "0")}.jpg`;
 
-
+        // https://plywoodassets.royaletouche.com/assets/compressed/usp/F0000.jpg
         // https://newroyaltouch.pvotdesigns.xyz/assets/images/compressed/usp/F0000.jpg
-        // https://newroyaltouch.pvotdesigns.xyz/assets/images/Original/usp/F0000.jpg
-        // https://newroyaltouch.pvotdesigns.xyz/assets/images/compressed/usp/F0000.jpg
-
-        // https://newroyaltouch.pvotdesigns.xyz/assets/images/compressed/usp/F000.jpg
-        // https://royaletouche.humbeestudio.xyz/wp-content/uploads/2024/02/001-scaled.jpg
         // let imgL = [];
     for (let i = 0; i < frameCount; i++) {
       let img = new Image();
