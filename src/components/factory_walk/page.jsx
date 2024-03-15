@@ -27,7 +27,7 @@ const FactoryWalk = ({ loadFacoryWalk }) => {
 
   const variants = {
     hidden: { opacity: 0, y: 5 }, // Move the button down initially
-    visible: { opacity: 1, y: -60 }, // Move the button up to its original position
+    visible: { opacity: 1, y: -100 }, // Move the button up to its original position
   };
 
   useEffect(() => {
@@ -52,10 +52,21 @@ const FactoryWalk = ({ loadFacoryWalk }) => {
       const windowWidth = window.innerWidth;
       const windowHeight = window.innerHeight;
 
-      if (windowWidth >= 1600) {
-        canvas.width = 2000; // Width remains constant for desktop screens
+      if (windowWidth >= 1700) {
+        canvas.width = 1900; // Width remains constant for desktop screens
         canvas.height = windowHeight * 1; // Adjust the height for desktop screens
-      } else if (windowWidth >= 1599) {
+      }
+      else if (windowWidth >= 1680) {
+        canvas.width = 1600; // Width remains constant for tablet screens
+        canvas.height = windowHeight * 1; // Adjust the height for tablet screens
+      }
+
+      else if (windowWidth >= 1600) {
+        canvas.width = 1600; // Width remains constant for tablet screens
+        canvas.height = windowHeight * 1; // Adjust the height for tablet screens
+      }
+      
+      else if (windowWidth >= 1599) {
         canvas.width = 1600; // Width remains constant for tablet screens
         canvas.height = windowHeight * 1; // Adjust the height for tablet screens
       } else if (windowWidth >= 1440) {
