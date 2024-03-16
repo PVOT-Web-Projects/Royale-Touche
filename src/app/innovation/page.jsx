@@ -11,8 +11,16 @@ import innovation_image_mobile from "@/images/inn_banner_new.png";
 import { AnimatePresence } from "framer-motion";
 import Preloader from "@/components/preloader/page";
 import styles from "@/app/innovation/innovation.module.css";
-import "./innovationMobileBanner.css"
+import "./innovationMobileBanner.css";
 const Page = () => {
+  const [width, setWidth] = useState(window.innerWidth);
+  console.log("width", width);
+
+  useEffect(() => {
+    window.addEventListener("resize", () => {
+      setWidth(window.innerWidth);
+    });
+  }, [width]);
   useEffect(() => {
     document.title = "Innovation - Royale Touch Performance Ply";
   }, []);
@@ -39,8 +47,11 @@ const Page = () => {
             heading_big="INNOVATION"
           />
         </div>
-        <Factory_walk loadFacoryWalk={handleLoad} />
+        {width > 991 ? (
+          <Factory_walk loadFacoryWalk={handleLoad} />
+        ) : (
           <Factory_walk1 loadFacoryWalkMobile={handleLoad} />
+        )}
       </div>
       <Form />
       <Footer />
