@@ -598,13 +598,13 @@ const FormCommon = () => {
 
         {/* Upload File */}
         <div className={styles.invoice_upload_container}>
-          {/* <div>
+          <div>
             <p className={styles.upload_invoice_text}>
               Click here to upload invoice*
             </p>
-          </div> */}
+          </div>
           {/* Invoice */}
-          {/* <div className={styles.invoice_Main}>
+          <div className={styles.invoice_Main}>
             <div className={styles.inovoice_inner_flex}>
               <div
                 className={styles.invoice_inner_cards}
@@ -734,8 +734,8 @@ const FormCommon = () => {
                 </p>
               </div>
             </div>
-          </div> */}
-          
+          </div>
+
           
           {/* invoice ends */}
           <div className={styles.form_last_section}>
