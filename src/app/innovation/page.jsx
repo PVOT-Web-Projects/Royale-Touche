@@ -1,8 +1,7 @@
 "use client"
 import React, { useEffect, useState } from "react";
+import dynamic from 'next/dynamic';
 import Inner_header from "@/common/inner_header/page";
-import Factory_walk from "@/components/factory_walk/page";
-import Factory_walk1 from "@/components/factory_walk/page2";
 import Footer from "@/components/footer/page";
 import Form from "@/components/form/page";
 import innovation_image from "@/images/InnovationNewBanner.jpg";
@@ -12,14 +11,18 @@ import Preloader from "@/components/preloader/page";
 import styles from "@/app/innovation/innovation.module.css";
 import "./innovationMobileBanner.css";
 
+const Factory_walk = dynamic(() => import("@/components/factory_walk/page"));
+const Factory_walk1 = dynamic(() => import("@/components/factory_walk/page2"));
+
 const Page = () => {
-  const [width, setWidth] = useState(window.innerWidth);
+  const [width, setWidth] = useState(null);
 
   useEffect(() => {
     const handleResize = () => {
       setWidth(window.innerWidth);
     };
 
+    handleResize(); // Initialize width
     window.addEventListener("resize", handleResize);
 
     return () => {
@@ -28,8 +31,10 @@ const Page = () => {
   }, []);
 
   useEffect(() => {
-    document.title = "Innovation - Royale Touch Performance Ply";
-  }, []);
+    if (width) {
+      document.title = "Innovation - Royale Touch Performance Ply";
+    }
+  }, [width]);
 
   const [isLoading, setIsLoading] = useState(true);
 
@@ -55,10 +60,14 @@ const Page = () => {
             heading_big="INNOVATION"
           />
         </div>
-        {width > 991 ? (
-          <Factory_walk loadFacoryWalk={handleLoad} />
-        ) : (
-          <Factory_walk1 loadFacoryWalkMobile={handleLoad} />
+        {width && (
+          <>
+            {width > 991 ? (
+              <Factory_walk loadFacoryWalk={handleLoad} />
+            ) : (
+              <Factory_walk1 loadFacoryWalkMobile={handleLoad} />
+            )}
+          </>
         )}
         <Form />
         <Footer />
