@@ -295,7 +295,7 @@ const Page = () => {
                   </div>
                   <p className={`${styles.timeline_comment} triggered-text`}>
                     Plywood Manufacturing Unit Installed with production
-                    capacity of 1,25,00,000 NA/50,000 M3 In Ahemdabad
+                    capacity of 1,25,00,000 NA/50,000 M3 In Ahmedabad
                   </p>
                   <div className={styles.bead_outer}>
                     <div className={`${styles.bead} triggered-bead`}></div>
