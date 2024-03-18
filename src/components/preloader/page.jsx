@@ -1,10 +1,8 @@
-import styles from "@/components/preloader/preloader.module.css";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { opacity, slideUp } from "@/components/preloader/anime";
-import Image from "next/image";
-import spinner from "@/images/loadingSpinner.gif"
 import "./preloader.css"
+import styles from "@/components/preloader/preloader.module.css";
 const words = ["નમસ્તે", "hello", "Ciao", "Hallå", "नमस्ते", "hello"];
 export default function Index() {
   const [index, setIndex] = useState(0);

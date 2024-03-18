@@ -11,7 +11,6 @@ import Specifications from "@/common/specifications/page";
 import Inner_page_slider3 from "@/common/inner_page_slider3/page";
 import Footer from "@/components/footer/page";
 import Form from "@/components/form/page";
-import ProductOverview from "@/components/product_overview/page";
 import SmartChioceTable from "@/common/SmartChoice-Table/page";
 
 const SpecificationsLeftData = [
@@ -143,12 +142,6 @@ const Page = () => {
     document.title = "Buy Plywood Sheet Online | Ply Board - Royale Touche Plywood ";
   }, []);
   const [isLoading, setIsLoading] = useState(true);
-  // useEffect(() => {
-  //   (async () => {
-  //     const LocomotiveScroll = (await import("locomotive-scroll")).default;
-  //     const locomotiveScroll = new LocomotiveScroll();
-  //   })();
-  // }, []);
 
   setTimeout(() => {
     setIsLoading(false);
@@ -173,8 +166,6 @@ const Page = () => {
       />
       <SmartChioceTable />
       <Plywood_main />
-      {/* <ProductOverview /> */}
-
       <Form />
       <Footer />
     </main>
