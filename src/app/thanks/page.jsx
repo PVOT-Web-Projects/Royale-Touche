@@ -24,9 +24,9 @@ const Page = () => {
   }, 2000);
   return (
       <main>
-      <AnimatePresence mode="wait">
+      {/* <AnimatePresence mode="wait">
         {isLoading && <Preloader />}
-      </AnimatePresence>
+      </AnimatePresence> */}
       {/* <Inner_header
         inner_header_image={Claim_banner}
         heading_big="CLAIM WARRANTY"
