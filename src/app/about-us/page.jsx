@@ -11,19 +11,12 @@ import Slider from "@/components/slider/page";
 import aboutUs_image from "@/images/new_about.jpg";
 import WhyPlywood from "@/components/whyPlywood/WhyPlywood";
 import OurStory from "@/components/ourStory/page";
-
 const Page = () => {
   useEffect(() => {
     document.title = "About us | Royale Touche Plywood";
   }, []);
 
   const [isLoading, setIsLoading] = useState(true);
-  // useEffect(() => {
-  //   (async () => {
-  //     const LocomotiveScroll = (await import("locomotive-scroll")).default;
-  //     const locomotiveScroll = new LocomotiveScroll();
-  //   })();
-  // }, []);
   
 
   setTimeout(() => {

@@ -7,7 +7,6 @@ import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import HeadingTextAnimation from "@/common/AnimatedText/HeadingTextAnimation";
 import Button from "@/common/button/button4";
-import logo from "@/images/pvot_logo.png";
 import ScrollToTop from "react-scroll-to-top";
 import Title from "@/components/footer/test";
 import { useRouter } from "next/navigation";
@@ -138,8 +137,5 @@ const Page = () => {
     </div>
   );
 };
-{
-  /* <Image src={logo} alt="none" /> */
-}
 
 export default Page;
