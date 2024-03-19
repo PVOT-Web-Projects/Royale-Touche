@@ -98,12 +98,12 @@ const Home = ({loadUSP}) => {
     const frameCount = 483;
 
     const currentFrame = (index) =>
-      `https://plywoodassets.royaletouche.com/assets/compressed/usp/F${(index + 1)
+      `https://plywoodassets.royaletouche.com/assets/newframes/usp/F${(index + 1)
         .toString()
-        .padStart(4, "0")}.jpg`;
+        .padStart(4, "0")}.webp`;
 
+        // https://plywoodassets.royaletouche.com/assets/newframes/usp/F0000.webp
         // https://plywoodassets.royaletouche.com/assets/compressed/usp/F0000.jpg
-        // https://newroyaltouch.pvotdesigns.xyz/assets/images/compressed/usp/F0000.jpg
         // let imgL = [];
     for (let i = 0; i < frameCount; i++) {
       let img = new Image();
