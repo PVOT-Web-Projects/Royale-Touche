@@ -63,7 +63,7 @@ export default function RootLayout({ children }) {
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-MTKLKTNEJT"
         ></script>
-        
+        <link rel="canonical" href="https://plywood.royaletouche.com/" />
       </head>
 
       <body className={lato.className}>
