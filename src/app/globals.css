@@ -85,31 +85,37 @@ a {
   src: local("LatoBlack"),
     url("../../src/fonts/Lato-Black.ttf") format("truetype");
   font-weight: normal;
+  font-display: swap;
 }
 @font-face {
   font-family: "BlackItalic";
   src: local("BlackItalic"),
     url("../../src/fonts/Lato-BlackItalic.ttf") format("truetype");
+    font-display: swap;
 }
 @font-face {
   font-family: "LatoBold.";
   src: local("LatoBold"),
     url("../../src/fonts/Lato-Bold.ttf") format("truetype");
+    font-display: swap;
   font-weight: normal;
 }
 @font-face {
   font-family: "LatoItalic";
   src: local("LatoItalic"),
     url("../../src/fonts/Lato-Italic.ttf") format("truetype");
+    font-display: swap;
 }
 @font-face {
   font-family: "LatoLight";
   src: local("LatoLight"),
     url("../../src/fonts/Lato-Light.ttf") format("truetype");
+    font-display: swap;
   font-weight: normal;
 }
 @font-face {
   font-family: "LatoRegular";
   src: local("LatoRegular"),
     url("../../src/fonts/Lato-Regular.ttf") format("truetype");
+    font-display: swap;
 }
