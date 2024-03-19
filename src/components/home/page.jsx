@@ -53,7 +53,7 @@ const Page = ({ lData }) => {
         <div className="card">
           <div className="card-cover">
             <HeroSection
-              video_bg="./video/video2.mp4"
+              video_bg="./video/video4.mp4"
               homepage_heading="ply that is a living shield for beautiful and timeless furniture"
             />
           </div>
