@@ -16,6 +16,8 @@ import gsap from "gsap";
 import { useLayoutEffect } from "react";
 import "./homeParallax.css";
 
+
+
 const Page = ({ lData }) => {
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {

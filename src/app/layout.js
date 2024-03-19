@@ -63,6 +63,89 @@ export default function RootLayout({ children }) {
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-MTKLKTNEJT"
         ></script>
+        <link rel="canonical" href="https://plywood.royaletouche.com/" />
+        <link rel="canonical" href="https://plywood.royaletouche.com/blogs/" />
+        <link
+          rel="canonical"
+          href="https://plywood.royaletouche.com/claim-warranty/"
+        />
+        <link
+          rel="canonical"
+          href="https://plywood.royaletouche.com/contact-us/"
+        />
+        <link
+          rel="canonical"
+          href="https://plywood.royaletouche.com/privacy-policy/"
+        />
+        <link
+          rel="canonical"
+          href="https://plywood.royaletouche.com/about-us/"
+        />
+        <link
+          rel="canonical"
+          href="https://plywood.royaletouche.com/product/plywood/"
+        />
+        <link
+          rel="canonical"
+          href="https://plywood.royaletouche.com/find-store/"
+        />
+        <link rel="canonical" href="https://plywood.royaletouche.com/faqs/" />
+        <link
+          rel="canonical"
+          href="https://plywood.royaletouche.com/product/blockboard/"
+        />
+        <link
+          rel="canonical"
+          href="https://plywood.royaletouche.com/terms-and-condition/"
+        />
+        <link
+          rel="canonical"
+          href="https://plywood.royaletouche.com/blogs/5-advantage-why-to-choose-waterproof-plywood/"
+        />
+        <link
+          rel="canonical"
+          href="https://plywood.royaletouche.com/blogs/5-tips-on-how-to-maintain-plywood-sheets/"
+        />
+        <link
+          rel="canonical"
+          href="https://plywood.royaletouche.com/blogs/7-easy-ways-to-clean-plywood-furniture/"
+        />
+        <link
+          rel="canonical"
+          href="https://plywood.royaletouche.com/blogs/types-of-plywood-size-and-what-are-the-difference/"
+        />
+        <link
+          rel="canonical"
+          href="https://plywood.royaletouche.com/blogs/101-plywoods-everything-knows-about-plywood/"
+        />
+        <link
+          rel="canonical"
+          href="https://plywood.royaletouche.com/blogs/fire-resistant-plywood-things-you-should-know/"
+        />
+        <link
+          rel="canonical"
+          href="https://plywood.royaletouche.com/blogs/how-to-choose-best-plywood-for-interiors/"
+        />
+        <link
+          rel="canonical"
+          href="https://plywood.royaletouche.com/blogs/how-to-choose-high-quality-plywoods-for-furniture/"
+        />
+        <link
+          rel="canonical"
+          href="https://plywood.royaletouche.com/blogs/kitchen-plywood-which-plywood-is-best-for-modular-kitchen/"
+        />
+        <link
+          rel="canonical"
+          href="https://plywood.royaletouche.com/blogs/know-everything-about-veneer-plywood/"
+        />
+        <link
+          rel="canonical"
+          href="https://plywood.royaletouche.com/blogs/make-your-furniture-strong-using-tremite-resistant-ply/"
+        />
+        <link
+          rel="canonical"
+          href="https://plywood.royaletouche.com/blogs/what-is-commercial-plywood/"
+        />
       </head>
 
       <body className={lato.className}>
