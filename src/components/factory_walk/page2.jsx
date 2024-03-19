@@ -50,14 +50,14 @@ const FactoryWalkMobile = ({ loadFacoryWalkMobile }) => {
 
     const frameCount = 587;
     const currentFrame = (index) =>
-      `https://plywoodassets.royaletouche.com/assets/compressed/factorywalkmobile/F${(
+      `https://plywoodassets.royaletouche.com/assets/newframes/factorywalkmobile/F${(
         index + 0
       )
         .toString()
-        .padStart(4, "0")}.jpg`;
+        .padStart(4, "0")}.webp`;
+        // https://plywoodassets.royaletouche.com/assets/newframes/factorywalkmobile/F0000.webp
         // https://plywoodassets.royaletouche.com/assets/compressed/factorywalkmobile/F0000.jpg
-        // https://newroyaltouch.pvotdesigns.xyz/assets/images/compressed/factoryWalkMobile/F0000.jpg
-
+      
 
 
     let imgL = [];

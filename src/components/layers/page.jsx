@@ -120,14 +120,13 @@ const Airpods = ({loadLayer}) => {
 
     const frameCount = 350;
     const currentFrame = (index) =>
-      `https://plywoodassets.royaletouche.com/assets/compressed/layers/${(
+      `https://plywoodassets.royaletouche.com/assets/newframes/layers/${(
         index + 1
       )
         .toString()
-        .padStart(5, "0")}.jpg`;
+        .padStart(5, "0")}.webp`;
+        // https://plywoodassets.royaletouche.com/assets/newframes/layers/00001.webp
         // https://plywoodassets.royaletouche.com/assets/compressed/layers/00001.jpg
-        // https://newroyaltouch.pvotdesigns.xyz/assets/images/Original/plystack/00001.jpg
-        // https://newroyaltouch.pvotdesigns.xyz/assets/images/compressed/plystack/000.png
 
     let imgL = [];
     for (let i = 0; i < frameCount; i++) {

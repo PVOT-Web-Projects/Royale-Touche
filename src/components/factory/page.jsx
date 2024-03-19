@@ -72,13 +72,13 @@ const AirpodsAnimation = ({ loadImage }) => {
 
     const frameCount = 160;
     const currentFrame = (index) =>
-      `https://plywoodassets.royaletouche.com/assets/compressed/factoryzoom/F${(
+      `https://plywoodassets.royaletouche.com/assets/newframes/factoryzoom/F${(
         index + 0
       )
         .toString()
-        .padStart(3, "0")}.jpg`;
+        .padStart(3, "0")}.webp`;
+        // https://plywoodassets.royaletouche.com/assets/newframes/factoryzoom/F000.webp
         // https://plywoodassets.royaletouche.com/assets/compressed/factoryzoom/F000.jpg
-    // https://newroyaltouch.pvotdesigns.xyz/assets/images/compressed/factoryzoom/F000.jpg
     let imgL = [];
 
     for (let i = 0; i < frameCount; i++) {
