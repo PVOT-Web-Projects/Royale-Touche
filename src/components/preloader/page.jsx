@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { opacity, slideUp } from "@/components/preloader/anime";
-import "./preloader.css"
+import "./preloader.css";
 import styles from "@/components/preloader/preloader.module.css";
 const words = ["નમસ્તે", "hello", "Ciao", "Hallå", "नमस्ते", "hello"];
 export default function Index() {
@@ -67,15 +67,15 @@ export default function Index() {
           >
             {/* {percentage}% */}
             <div class="dot-spinner">
-    <div class="dot-spinner__dot"></div>
-    <div class="dot-spinner__dot"></div>
-    <div class="dot-spinner__dot"></div>
-    <div class="dot-spinner__dot"></div>
-    <div class="dot-spinner__dot"></div>
-    <div class="dot-spinner__dot"></div>
-    <div class="dot-spinner__dot"></div>
-    <div class="dot-spinner__dot"></div>
-</div>
+              <div class="dot-spinner__dot"></div>
+              <div class="dot-spinner__dot"></div>
+              <div class="dot-spinner__dot"></div>
+              <div class="dot-spinner__dot"></div>
+              <div class="dot-spinner__dot"></div>
+              <div class="dot-spinner__dot"></div>
+              <div class="dot-spinner__dot"></div>
+              <div class="dot-spinner__dot"></div>
+            </div>
           </motion.div>
           <motion.p
             className={styles.preloader_text}
@@ -94,13 +94,10 @@ export default function Index() {
           </svg>
         </div>
       )}
-     {/* <div className={styles.loading}>
+      {/* <div className={styles.loading}>
       Loading
       <Image src={spinner} alt="spinner" />
      </div> */}
-
-
-     
     </motion.div>
   );
 }

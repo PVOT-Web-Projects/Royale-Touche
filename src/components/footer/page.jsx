@@ -1,5 +1,5 @@
 "use client";
-import { useEffect } from "react";
+import { useEffect , useState } from "react";
 import Image from "next/image";
 import footer_logo from "@/images/finalFooterLogo.png";
 import Link from "next/link";
@@ -13,13 +13,37 @@ import { useRouter } from "next/navigation";
 import styles from "@/components/footer/footer.module.css";
 import "./scroll_to_top.css";
 import { usePathname } from "next/navigation";
+import {
+  DirectLink,
+  Element,
+  Events,
+  animateScroll as scroll,
+  scrollSpy,
+  scroller,
+} from "react-scroll";
 const Page = () => {
+  const [showScrollButton, setShowScrollButton] = useState(false);
+
+
   const [ref, inView] = useInView({
     triggerOnce: true,
   });
   const location = usePathname();
-
   const controls = useAnimation();
+  useEffect(() => {
+    const toggleVisibility = () => {
+      if (window.scrollY > window.innerHeight) {
+        setShowScrollButton(true);
+      } else {
+        setShowScrollButton(false);
+      }
+    };
+  
+    window.addEventListener('scroll', toggleVisibility);
+  
+    return () => window.removeEventListener('scroll', toggleVisibility);
+  }, []);
+  
 
   useEffect(() => {
     if (inView) {
@@ -27,8 +51,16 @@ const Page = () => {
     }
   }, [controls, inView]);
   const router = useRouter();
+
   return (
     <div>
+    {showScrollButton && (
+      <div className={styles.scrollToBottom} onClick={() => scroll.scrollToBottom()}>
+        <svg width="100%" height="100%" viewBox="0 0 24 22" xmlns="http://www.w3.org/2000/svg">
+          <path d="m18.787 9.473s-4.505-4.502-6.259-6.255c-.147-.146-.339-.22-.53-.22-.192 0-.384.074-.531.22-1.753 1.753-6.256 6.252-6.256 6.252-.147.147-.219.339-.217.532.001.19.075.38.221.525.292.293.766.295 1.056.004l4.977-4.976v14.692c0 .414.336.75.75.75.413 0 .75-.336.75-.75v-14.692l4.978 4.978c.289.29.762.287 1.055-.006.145-.145.219-.335.221-.525.002-.192-.07-.384-.215-.529z" fill="#C3A464"/>
+        </svg>
+      </div>
+    )}
       <div className={styles.footer_upper_heading_wrapper}>
         <motion.div
           ref={ref}
@@ -57,7 +89,7 @@ const Page = () => {
       <div className={styles.footer_wrapper}>
         <div className={styles.footer_firstSide}>
           <Image
-          onClick={() => router.push("/")}
+            onClick={() => router.push("/")}
             src={footer_logo}
             alt="Footer-logo"
             className={styles.footer_logo_image}
@@ -101,7 +133,9 @@ const Page = () => {
           <div className={styles.footer_titles}>{"PRODUCT GUIDE"}</div>
           <ul className={styles.footer_headers}>
             <li className={styles.footer_item_list}>
-              <a target="_blank" href="https://royaletouche.com/">{"Laminates"}</a>
+              <a target="_blank" href="https://royaletouche.com/">
+                {"Laminates"}
+              </a>
             </li>
             <li className={styles.footer_item_list}>
               <a target="_blank" href="https://royaletouche.com/woodenfloors/">
@@ -119,6 +153,7 @@ const Page = () => {
         </div>
       </div>
       <div>
+       
         <ScrollToTop
           smooth
           viewBox="0 0 24 22"
@@ -127,10 +162,10 @@ const Page = () => {
         />
       </div>
       <div className={styles.footer_copyright}>
-      Copyright © 2024 All Rights Reserved by Royale Touche Performance Ply |
+        Copyright © 2024 All Rights Reserved by Royale Touche Performance Ply |
         <span className={styles.copyright_company_name}>
           <Link href="https://pvotdesigns.com/" target="_blank">
-            {' PVOT'}
+            {" PVOT"}
           </Link>
         </span>
       </div>
