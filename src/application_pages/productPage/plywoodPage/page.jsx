@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { AnimatePresence } from "framer-motion";
 import Preloader from "@/components/preloader/page";
 import innovation_image from "@/images/plywood_hero_img.jpg";
@@ -11,7 +11,7 @@ import Specifications from "@/common/specifications/page";
 import Inner_page_slider3 from "@/common/inner_page_slider3/page";
 import Footer from "@/components/footer/page";
 import Form from "@/components/form/page";
-import SmartChioceTable from "@/common/SmartChoice-Table/page";
+import SmartChoiceTable from "@/common/SmartChoice-Table/page";
 
 const SpecificationsLeftData = [
   {
@@ -162,7 +162,7 @@ const Page = () => {
         leftData={SpecificationsLeftData}
         rightData={SpecificationsRightData}
       />
-      <SmartChioceTable />
+      <SmartChoiceTable />
       <Plywood_main />
       <Form />
       <Footer />

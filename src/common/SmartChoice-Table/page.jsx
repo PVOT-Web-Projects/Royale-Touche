@@ -39,6 +39,7 @@ const Page = () => {
       <div className={styles.SmartChoice_section}>
         <div className={styles.SmartChoice_table}>
           <table>
+          <thead>
             <tr>
               <td colspan="4">
                 <span> SMART CHOICE:</span> KNOW YOUR PRODUCT
@@ -52,6 +53,8 @@ const Page = () => {
               </th>
               <th>NON- BRANDED</th>
             </tr>
+            </thead>
+            <tbody>
             <tr>
               <td>PRESERVATIVE TREATMENT FOR BORER & TERMITE</td>
               <td>4 Stages</td>
@@ -136,6 +139,7 @@ const Page = () => {
                 <CrossSVG />
               </td>
             </tr>
+            </tbody>
           </table>
         </div>
       </div>
