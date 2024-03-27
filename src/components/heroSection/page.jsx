@@ -77,7 +77,7 @@ const Page = (props) => {
       <div className={styles.homepage_image_wrapper}>
         {props.video_bg && (
           <div className={styles.video_outer}>
-            <video autoPlay loop muted className={styles.videoBackground}>
+            <video  loop autoPlay playsInline muted  className={styles.videoBackground}>
               <source
                 className={styles.video_bg}
                 src={props.video_bg}

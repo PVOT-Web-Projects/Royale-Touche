@@ -11,22 +11,24 @@ import Form from "@/components/form/page";
 import Navbar from "@/components/navbar/index";
 import HomeStore from "@/components/homeStore/page";
 import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
-import Lenis from "@studio-freight/lenis";
+// import ScrollTrigger from "gsap/ScrollTrigger";
+// import Lenis from "@studio-freight/lenis";
 import { useLayoutEffect } from "react";
 import "./homeParallax.css";
+
+
 
 const Page = ({ lData }) => {
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
       // lenis integration for smooth scroll
-      const lenis = new Lenis();
-      function raf(time) {
-        lenis.raf(time);
-        ScrollTrigger.update();
-        requestAnimationFrame(raf);
-      }
-      requestAnimationFrame(raf);
+      // const lenis = new Lenis();
+      // function raf(time) {
+      //   lenis.raf(time);
+      //   ScrollTrigger.update();
+      //   requestAnimationFrame(raf);
+      // }
+      // requestAnimationFrame(raf);
       // card parallax effect
       const cards = document.querySelectorAll(".card");
       cards.forEach((card) => {
@@ -53,7 +55,7 @@ const Page = ({ lData }) => {
         <div className="card">
           <div className="card-cover">
             <HeroSection
-              video_bg="./video/video2.mp4"
+              video_bg="./video/video4.mp4"
               homepage_heading="ply that is a living shield for beautiful and timeless furniture"
             />
           </div>
@@ -70,4 +72,5 @@ const Page = ({ lData }) => {
     </div>
   );
 };
+
 export default Page;

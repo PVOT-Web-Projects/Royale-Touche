@@ -60,10 +60,16 @@ const Airpods = ({loadLayer}) => {
       const windowWidth = window.innerWidth;
       const windowHeight = window.innerHeight;
 
-      if (windowWidth >= 1600) {
+      if (windowWidth >= 1700) {
         canvas.width = 2000; // Width remains constant for desktop screens
         canvas.height = windowHeight * 1; // Adjust the height for desktop screens
-      } else if (windowWidth >= 1599) {
+      } 
+      else if (windowWidth >= 1600) {
+        canvas.width = 1600; // Width remains constant for tablet screens
+        canvas.height = windowHeight * 1; // Adjust the height for tablet screens
+      }
+      
+      else if (windowWidth >= 1599) {
         canvas.width = 1600; // Width remains constant for tablet screens
         canvas.height = windowHeight * 1; // Adjust the height for tablet screens
       }
@@ -114,14 +120,13 @@ const Airpods = ({loadLayer}) => {
 
     const frameCount = 350;
     const currentFrame = (index) =>
-      `https://newroyaltouch.pvotdesigns.xyz/assets/images/Original/plystack/${(
+      `https://plywoodassets.royaletouche.com/assets/newframes/layers/${(
         index + 1
       )
         .toString()
-        .padStart(5, "0")}.jpg`;
-
-        // https://newroyaltouch.pvotdesigns.xyz/assets/images/Original/plystack/00001.jpg
-        // https://newroyaltouch.pvotdesigns.xyz/assets/images/compressed/plystack/000.png
+        .padStart(5, "0")}.webp`;
+        // https://plywoodassets.royaletouche.com/assets/newframes/layers/00001.webp
+        // https://plywoodassets.royaletouche.com/assets/compressed/layers/00001.jpg
 
     let imgL = [];
     for (let i = 0; i < frameCount; i++) {

@@ -1,41 +1,14 @@
-"use client";
-import { useEffect, useState } from "react";
-import { AnimatePresence } from "framer-motion";
-import Preloader from "@/components/preloader/page";
-import Home from "@/components/home/page";
-
+import HomePage from "@/application_pages/homePage/page";
+export const metadata = {
+  title:
+    "Buy Plywood & Blockboard Online | Plywood Manufacturer in India - Royale Touche Plywood",
+  description: `Buy Plywood & Blockboard Online in india at the best prices. Royale Touche Plywood leading manufacturer of Plywood sheet & Blockwood in India. Visit Now. `,
+  // icons: {
+  //   other: [
+  //    { rel: 'canonical', url: 'https://plywood.royaletouche.com/' },
+  //   ]
+  // }
+};
 export default function Page() {
-  const [isLoading, setIsLoading] = useState(true);
-  useEffect(() => {
-    document.title = "Royale Touche Performance Ply";
-  }, []);
-
-  // useEffect(() => {
-  //   (async () => {
-  //     const LocomotiveScroll = (await import('locomotive-scroll')).default;
-  //     const locomotiveScroll = new LocomotiveScroll();
-  //   })();
-  // }, []);
-
-  // setTimeout(() => {
-  //   setIsLoading(false);
-  //   if (typeof document !== "undefined") {
-  //     document.body.style.cursor = "default";
-  //     window.scrollTo(0, 0);
-  //   }
-  // }, 3500);
-
-  function handleLoad(data) {
-    console.log(data);
-    setIsLoading(data);
-  }
-
-  return (
-    <main>
-      <AnimatePresence mode="wait">
-        {isLoading && <Preloader />}
-      </AnimatePresence>
-      <Home lData={handleLoad} />
-    </main>
-  );
+  return <HomePage />;
 }

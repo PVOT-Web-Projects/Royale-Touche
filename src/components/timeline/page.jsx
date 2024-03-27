@@ -27,15 +27,22 @@ const Home = ({loadUSP}) => {
 
     const windowWidth = window.innerWidth;
     const windowHeight = window.innerHeight;
-    let canvasHeight;
+    let canvasHeight = canvas.height
   
     // if (windowWidth >= 1700) {
     //   canvasHeight = 800; // Set height for large screens (>=1600px width)
     // } 
 
-    if (windowWidth >= 1600) {
-      canvasHeight = 750; // Set height for large screens (>=1600px width)
+    if (windowWidth >= 1685) {
+      canvasHeight = 700; // Set height for large screens (>=1600px width)
     } 
+    else if(windowWidth >= 1680){
+      canvasHeight = 670; // Set height for large screens (>=1600px width)
+    }
+
+    else if (windowWidth >= 1600) {
+      canvasHeight = 740; // Set height for medium screens (>=1200px width)
+    }
     
     else if (windowWidth >= 1200) {
       canvasHeight = 700; // Set height for medium screens (>=1200px width)
@@ -91,17 +98,12 @@ const Home = ({loadUSP}) => {
     const frameCount = 483;
 
     const currentFrame = (index) =>
-      `https://newroyaltouch.pvotdesigns.xyz/assets/images/compressed/usp/F${(index + 1)
+      `https://plywoodassets.royaletouche.com/assets/newframes/usp/F${(index + 1)
         .toString()
-        .padStart(4, "0")}.jpg`;
+        .padStart(4, "0")}.webp`;
 
-
-        // https://newroyaltouch.pvotdesigns.xyz/assets/images/compressed/usp/F0000.jpg
-        // https://newroyaltouch.pvotdesigns.xyz/assets/images/Original/usp/F0000.jpg
-        // https://newroyaltouch.pvotdesigns.xyz/assets/images/compressed/usp/F0000.jpg
-
-        // https://newroyaltouch.pvotdesigns.xyz/assets/images/compressed/usp/F000.jpg
-        // https://royaletouche.humbeestudio.xyz/wp-content/uploads/2024/02/001-scaled.jpg
+        // https://plywoodassets.royaletouche.com/assets/newframes/usp/F0000.webp
+        // https://plywoodassets.royaletouche.com/assets/compressed/usp/F0000.jpg
         // let imgL = [];
     for (let i = 0; i < frameCount; i++) {
       let img = new Image();
@@ -111,6 +113,7 @@ const Home = ({loadUSP}) => {
     }
     // const loadImages = async () => {
     //   try {
+      
     //     const loadImagePromises = imgL.map((imageUrl) => {
     //       return new Promise((resolve) => {
     //         const img = new Image();

@@ -1,0 +1,24 @@
+.innovation_desk {
+  display: block;
+}
+.innovation_mobile {
+  display: none;
+}
+@media screen and (max-width: 574px) {
+  .innovation_desk {
+    display: none;
+  }
+  .innovation_mobile {
+    display: block;
+  }
+}
+/* @media (max-width: 425px) {
+  .inner_header_big {
+    font-size: 35px;
+    font-style: normal;
+    font-weight: 500;
+    left: 0rem;
+    position: absolute;
+    top: 10rem;
+  }
+} */

@@ -931,7 +931,7 @@ const Contactform = () => {
   };
 
   const handleSubmitForm = async (values, { resetForm }) => {
-    console.log(values);
+    console.log(values)
     try {
       const response = await fetch(
         "https://prod-14.centralindia.logic.azure.com/workflows/171dcbea9b1148e88514788a30bc1718/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=52ykqTmRHPECU-KMQbm1r_aZIHIvcdAzpCVe_F4fl2U",
@@ -943,8 +943,8 @@ const Contactform = () => {
           },
         }
       );
-      const result = await response.json();
-      console.log("API Response", result);
+      const result = await response.statusText;
+      console.log("API Response", response);
       if (response.ok) {
         resetForm();
         setSelectedState("");
@@ -958,41 +958,35 @@ const Contactform = () => {
     }
   };
 
-  const {
-    values,
-    errors,
-    touched,
-    handleChange,
-    handleSubmit,
-    setFieldValue,
-    resetForm,
-  } = useFormik({
-    initialValues: initialValue,
-    validationSchema: ContactFormSchemas,
-    onSubmit: (value, action) => {
-      handleSubmitForm(value, resetForm);
-      action.resetForm();
-      console.log("values", value);
-      // emailjs
-      //   .send(
-      //     "service_6pitte7",
-      //     "template_azgm81o",
-      //     values,
-      //     "dp6xvACY2kw4Z6gwc"
-      //   )
-      //   .then((response) => {
-      //     console.log("Email sent successfully:", response);
-      //     setFormResponse(response);
-      //     action.resetForm();
-      //     // resetForm();
-      //   })
-      //   .catch((error) => {
-      //     console.error("Email send error:", error);
-      //   });
-      submitMessage();
-      console.log("FINALVALUE", value);
-    },
-  });
+  const { values, errors, touched, handleChange, handleSubmit, setFieldValue, resetForm } =
+    useFormik({
+      initialValues: initialValue,
+      validationSchema: ContactFormSchemas,
+      onSubmit: (value, action) => {
+        handleSubmitForm(value, resetForm);
+        action.resetForm();             
+        console.log("values", value);
+        // emailjs
+        //   .send(
+        //     "service_6pitte7",
+        //     "template_azgm81o",
+        //     values,
+        //     "dp6xvACY2kw4Z6gwc"
+        //   )
+        //   .then((response) => {
+        //     console.log("Email sent successfully:", response);
+        //     setFormResponse(response);
+        //     action.resetForm();
+        //     // resetForm();
+        //   })
+        //   .catch((error) => {
+        //     console.error("Email send error:", error);
+        //   });
+        submitMessage();
+        console.log("FINALVALUE", value);
+      },
+    });
+
   console.log("value", values);
   console.log("response", formResponse.text);
 
@@ -1036,7 +1030,7 @@ const Contactform = () => {
                 onChange={handleChange}
                 value={values.PhoneNo}
                 pattern="\d{10}"
-                maxlength="10"
+                maxLength="10"
                 placeholder="8140X XXXXX"
               />
               {touched.PhoneNo ||

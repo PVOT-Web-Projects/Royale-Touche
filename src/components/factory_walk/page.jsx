@@ -27,7 +27,7 @@ const FactoryWalk = ({ loadFacoryWalk }) => {
 
   const variants = {
     hidden: { opacity: 0, y: 5 }, // Move the button down initially
-    visible: { opacity: 1, y: -60 }, // Move the button up to its original position
+    visible: { opacity: 1, y: -120 }, // Move the button up to its original position
   };
 
   useEffect(() => {
@@ -52,10 +52,21 @@ const FactoryWalk = ({ loadFacoryWalk }) => {
       const windowWidth = window.innerWidth;
       const windowHeight = window.innerHeight;
 
-      if (windowWidth >= 1600) {
-        canvas.width = 2000; // Width remains constant for desktop screens
+      if (windowWidth >= 1700) {
+        canvas.width = 1900; // Width remains constant for desktop screens
         canvas.height = windowHeight * 1; // Adjust the height for desktop screens
-      } else if (windowWidth >= 1599) {
+      }
+      else if (windowWidth >= 1680) {
+        canvas.width = 1600; // Width remains constant for tablet screens
+        canvas.height = windowHeight * 1; // Adjust the height for tablet screens
+      }
+
+      else if (windowWidth >= 1600) {
+        canvas.width = 1600; // Width remains constant for tablet screens
+        canvas.height = windowHeight * 1; // Adjust the height for tablet screens
+      }
+      
+      else if (windowWidth >= 1599) {
         canvas.width = 1600; // Width remains constant for tablet screens
         canvas.height = windowHeight * 1; // Adjust the height for tablet screens
       } else if (windowWidth >= 1440) {
@@ -80,18 +91,16 @@ const FactoryWalk = ({ loadFacoryWalk }) => {
     setCanvasSize();
     window.addEventListener("resize", setCanvasSize);
 
-    const frameCount = 1199;
+    const frameCount = 583;
     const currentFrame = (index) =>
-      `https://newroyaltouch.pvotdesigns.xyz/assets/images/compressed/walkdesktop/F${(
+      `https://plywoodassets.royaletouche.com/assets/newframes/factorywalkdesktop/F${(
         index + 0
       )
         .toString()
-        .padStart(4, "0")}.jpg`;
+        .padStart(3, "0")}.webp`;
+        // https://plywoodassets.royaletouche.com/assets/newframes/factorywalkdesktop/F000.webp
+        // https://plywoodassets.royaletouche.com/assets/compressed/factorywalkdesktop/F000.jpg
 
-    // https://newroyaltouch.pvotdesigns.xyz/assets/images/compressed/walkdesktop/F0000.jpg
-    // https://newroyaltouch.pvotdesigns.xyz/assets/images/Original/factorywalk/F0000.jpg
-    // https://newroyaltouch.pvotdesigns.xyz/assets/images/compressed/walkdesktop/F0000.jpg
-    // https://royaletouche.humbeestudio.xyz/wp-content/uploads/2024/02/000001-scaled.jpg
     let imgL = [];
     for (let i = 0; i < frameCount; i++) {
       let img = new Image();

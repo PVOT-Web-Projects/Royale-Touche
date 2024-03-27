@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import { useRouter } from "next/navigation";
 import { AnimatePresence } from "framer-motion";
 import Inner_header from "@/common/inner_header/page";
 import Preloader from "@/components/preloader/page";
@@ -12,6 +13,7 @@ import logo from "@/images/finalNavbarLogo.png";
 import Navbar from "@/components/navbar/index";
 
 const Page = () => {
+  const router = useRouter();
       const [isLoading, setIsLoading] = useState(true);
   setTimeout(() => {
     setIsLoading(false);
@@ -22,9 +24,9 @@ const Page = () => {
   }, 2000);
   return (
       <main>
-      <AnimatePresence mode="wait">
+      {/* <AnimatePresence mode="wait">
         {isLoading && <Preloader />}
-      </AnimatePresence>
+      </AnimatePresence> */}
       {/* <Inner_header
         inner_header_image={Claim_banner}
         heading_big="CLAIM WARRANTY"
@@ -44,7 +46,9 @@ const Page = () => {
       </div>
       <div className={styles.content}>
         <div className={styles.logo}>
-          <Image src={logo} />
+          <Image 
+           onClick={() => router.push("/")}
+           src={logo} alt="image" />
         </div>
         <div className={styles.thanksContent}>
           <h3 className={styles.thanksHeading}>

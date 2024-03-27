@@ -5,7 +5,6 @@ import { useFormik } from "formik";
 import { useRouter } from "next/navigation";
 import { FormSchemas } from "@/components/warrantyForm/formSchema";
 import "./warrantyForm.css";
-import axios from "axios";
 import Image from "next/image";
 import emailjs from "@emailjs/browser";
 import invoice_icon from "@/images/invoice_svg.svg";
@@ -237,10 +236,10 @@ const FormCommon = () => {
         clearUploadedFile();
         emailjs
           .send(
-            "service_6pitte7",
-            "template_g1gqwr7",
+            "service_1yku1jq",  // service ID 
+            "template_tpgu78n",  // template
             values,
-            "dp6xvACY2kw4Z6gwc"
+            "wUn63IsqXIdoy36Vc" // public key 
           )
           .then((response) => {
             router.push("/thanks")
@@ -736,6 +735,8 @@ const FormCommon = () => {
               </div>
             </div>
           </div>
+
+          
           {/* invoice ends */}
           <div className={styles.form_last_section}>
             <div className={styles.form_last_section_content}>
@@ -759,7 +760,7 @@ const FormCommon = () => {
                   className={styles.forms_terms_condition}
                   // onClick={() => router.push("/terms_and_condition")}
                 >
-                  <Link href="/terms_and_condition" target="_blank">
+                  <Link href="/terms-and-condition" target="_blank">
                     Terms And Conditions
                   </Link>
                 </span>

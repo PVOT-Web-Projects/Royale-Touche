@@ -11,8 +11,15 @@ export default function Home() {
   console.log("loading", isActive);
  
   useEffect(() => {
-    if (isActive) setIsActive(false);
-  }, [pathname]);
+    // if (isActive) setIsActive(false);
+    if (isActive) {
+      document.body.style.overflow = "hidden";
+    }
+    if (isActive === false) {
+      document.body.style.overflow="unset"
+      // document.body.style.overflowX = "hidden";
+    }
+  }, [pathname, isActive]);
 
   return (
     <>

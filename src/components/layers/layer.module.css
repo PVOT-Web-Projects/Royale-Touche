@@ -237,6 +237,14 @@
     margin-bottom: 5rem;
   } */
 }
+@media (max-width: 1700px) {
+  .video_loop_outer {
+    transform: translateY(540px);
+  }
+}
+
+
+
 @media (max-width: 1600px) {
   .video_loop_outer {
     transform: translateY(600px);
