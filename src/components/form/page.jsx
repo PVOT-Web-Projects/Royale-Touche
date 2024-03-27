@@ -931,7 +931,7 @@ const Contactform = () => {
   };
 
   const handleSubmitForm = async (values, { resetForm }) => {
-    console.log(values)
+    console.log(values);
     try {
       const response = await fetch(
         "https://prod-14.centralindia.logic.azure.com/workflows/171dcbea9b1148e88514788a30bc1718/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=52ykqTmRHPECU-KMQbm1r_aZIHIvcdAzpCVe_F4fl2U",
@@ -958,35 +958,41 @@ const Contactform = () => {
     }
   };
 
-  const { values, errors, touched, handleChange, handleSubmit, setFieldValue, resetForm } =
-    useFormik({
-      initialValues: initialValue,
-      validationSchema: ContactFormSchemas,
-      onSubmit: (value, action) => {
-        handleSubmitForm(value, resetForm);
-        action.resetForm();             
-        console.log("values", value);
-        // emailjs
-        //   .send(
-        //     "service_6pitte7",
-        //     "template_azgm81o",
-        //     values,
-        //     "dp6xvACY2kw4Z6gwc"
-        //   )
-        //   .then((response) => {
-        //     console.log("Email sent successfully:", response);
-        //     setFormResponse(response);
-        //     action.resetForm();
-        //     // resetForm();
-        //   })
-        //   .catch((error) => {
-        //     console.error("Email send error:", error);
-        //   });
-        submitMessage();
-        console.log("FINALVALUE", value);
-      },
-    });
-
+  const {
+    values,
+    errors,
+    touched,
+    handleChange,
+    handleSubmit,
+    setFieldValue,
+    resetForm,
+  } = useFormik({
+    initialValues: initialValue,
+    validationSchema: ContactFormSchemas,
+    onSubmit: (value, action) => {
+      handleSubmitForm(value, resetForm);
+      action.resetForm();
+      console.log("values", value);
+      // emailjs
+      //   .send(
+      //     "service_6pitte7",
+      //     "template_azgm81o",
+      //     values,
+      //     "dp6xvACY2kw4Z6gwc"
+      //   )
+      //   .then((response) => {
+      //     console.log("Email sent successfully:", response);
+      //     setFormResponse(response);
+      //     action.resetForm();
+      //     // resetForm();
+      //   })
+      //   .catch((error) => {
+      //     console.error("Email send error:", error);
+      //   });
+      submitMessage();
+      console.log("FINALVALUE", value);
+    },
+  });
   console.log("value", values);
   console.log("response", formResponse.text);
 
@@ -996,7 +1002,6 @@ const Contactform = () => {
         <form onSubmit={handleSubmit} className={styles.Form_Container}>
           <div className={styles.Form_content}>
             <h1 className={styles.contact_form_title}>Contact Us</h1>
-
             <div className={styles.field}>
               <label htmlFor="fullName">Name</label>
               <input
@@ -1039,7 +1044,6 @@ const Contactform = () => {
                   <p className={styles.error}>{errors.PhoneNo}</p>
                 ))}
             </div>
-
             <div className={styles.field}>
               <label htmlFor="State">State</label>
               <Select
@@ -1062,7 +1066,6 @@ const Contactform = () => {
                 <p className={styles.error}>{errors.state}</p>
               )}
             </div>
-
             <div className={styles.field}>
               <label htmlFor="City">City</label>
               <Select
@@ -1107,21 +1110,21 @@ const Contactform = () => {
             <div className={styles.common_button_outer2}>
               <Button btn_text="Send Message" />
               {/* {formResponse.text === "OK" && ( */}
-                <ToastContainer
-                  position="top-right"
-                  autoClose={3000}
-                  hideProgressBar={false}
-                  newestOnTop={false}
-                  closeOnClick={true}
-                  rtl={false}
-                  pauseOnFocusLoss={false}
-                  draggable={false}
-                  pauseOnHover={false}
-                  theme="light"
-                  transition={Slide}
-                  className={"contactFormNotification"}
-                  // progressStyle={{ background: "#f90" }}
-                />
+              <ToastContainer
+                position="top-right"
+                autoClose={3000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick={true}
+                rtl={false}
+                pauseOnFocusLoss={false}
+                draggable={false}
+                pauseOnHover={false}
+                theme="light"
+                transition={Slide}
+                className={"contactFormNotification"}
+                // progressStyle={{ background: "#f90" }}
+              />
               {/* )} */}
             </div>
           </div>
@@ -1131,6 +1134,6 @@ const Contactform = () => {
         </div>
       </div>
     </div>
-  );      
+  );
 };
 export default Contactform;
