@@ -86,7 +86,7 @@ const Page = () => {
       <div className={styles.ply_bock}>
         <Navbar />
         <div className={styles.ply_side1}>
-          <Link href="product/plywood">
+          <Link className={styles.link} href="product/plywood">
             <div className={styles.plywood} ref={plywoodRef}>
               <h2 className={`${styles.plywood_title} two_heading_animation`}>
                 {splitWords("Plywood")}
@@ -112,7 +112,7 @@ const Page = () => {
         </div>
 
         <div className={styles.block_side2}>
-          <Link href="/product/blockboard">
+          <Link className={styles.link} href="/product/blockboard">
             <div className={styles.blockboard} ref={blockboardRef}>
               <h2
                 className={`${styles.blockboard_title} two_heading_animation`}

@@ -2,6 +2,11 @@
   display: flex;
   height: 100vh;
 }
+
+.link{
+  height: 100%;
+  display: flow-root;
+}
 .ply_side1 {
   width: 50%;
   position: relative;

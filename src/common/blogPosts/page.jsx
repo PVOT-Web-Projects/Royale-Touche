@@ -29,8 +29,15 @@ const BlogPost = ({ readMoreRoute }) => {
 
   const handlePageChange = (event, value) => {
     setCurrentPage(value);
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
+    let scrollPosition;
+    // Determine the scroll position based on window width
+    if (window.innerWidth <= 1600) {
+        scrollPosition = window.innerHeight * 1.14; // 110% of viewport height
+    } else {
+        scrollPosition = window.innerHeight * 1.08; // 130% of viewport height
+    }
+    window.scrollTo({ top: scrollPosition, behavior: "smooth" });
+};
 
   return (
     <div ref={projectsRef}>

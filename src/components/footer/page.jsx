@@ -23,8 +23,7 @@ import {
 } from "react-scroll";
 const Page = () => {
   const [showScrollButton, setShowScrollButton] = useState(false);
-
-
+  
   const [ref, inView] = useInView({
     triggerOnce: true,
   });
@@ -117,8 +116,8 @@ const Page = () => {
               <Link href="/privacy-policy">{"Privacy policy"}</Link>
             </li>
 
-            <li className={styles.footer_item_list}>
-              <Link href="/claim-warranty">{"Claim warranty"}</Link>
+            <li  style={{color:"#c3a464"}} className={styles.footer_item_list}>
+              <Link style={{color:"#c3a464", fontWeight:"400"}} href="/claim-warranty">{"Claim warranty"}</Link>
             </li>
             <li className={styles.footer_item_list}>
               <Link href="/contact-us">{"Contact us"}</Link>

@@ -1,4 +1,4 @@
-import BlockwoodPage from "@/application_pages/productPage/blockwoodPage/page";
+import BlockboardPage from "@/application_pages/productPage/blockboardPage/page";
 
 export const metadata = {
   title: "Buy Blockbaord & Blockwood Online - Royale Touche Plywood",
@@ -14,7 +14,7 @@ export const metadata = {
   },
 };
 const Page = () => {
-  return <BlockwoodPage />;
+  return <BlockboardPage />;
 };
 
 export default Page;

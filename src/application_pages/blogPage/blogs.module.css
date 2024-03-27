@@ -1,14 +1,14 @@
-.blogs_banner_img{
-    display: none;
+.blogs_banner_img {
+  display: none;
 }
-.banner_img_desktop{
+.banner_img_desktop {
+  display: block;
+}
+@media screen and (max-width: 575px) {
+  .blogs_banner_img {
     display: block;
-}
-@media screen and (max-width:575px){
-    .blogs_banner_img{
-        display: block;
-    }
-    .banner_img_desktop{
-        display: none;
-    }
+  }
+  .banner_img_desktop {
+    display: none;
+  }
 }
