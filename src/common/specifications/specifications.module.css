@@ -1,6 +1,6 @@
 .specifications_section {
   position: relative;
-  height: 95vh;
+  height: auto;
   overflow: hidden;
 }
 .specifications_title {
@@ -10,9 +10,10 @@
   padding-bottom: 2rem;
 }
 .specifications_content {
-  overflow-y: scroll;
-  overflow-x: hidden;
-  height: 553px;
+  /* overflow-y: scroll;
+  overflow-x: hidden; */
+  /* height: 553px; */
+  height: auto;
   display: flex;
   justify-content: space-between;
   padding-top: 1.5rem;
@@ -63,7 +64,7 @@
   text-align: right;
   padding-bottom: 2rem;
 }
-.specifications_content::-webkit-scrollbar{
+/* .specifications_content::-webkit-scrollbar{
   width: 12px;
   height: 300px;
   margin-left: 10px;
@@ -78,11 +79,10 @@
   background-color: rgb(219, 218, 218);
   border-radius: 10px;
   margin-left: 20px;
-}
+} */
 .specifications_content_right {
   width: 35%;
-  /* overflow: scroll; */
-  height: 90vh;
+  height: auto;
   padding-bottom: 2rem;
 }
 .readmore {
@@ -99,12 +99,13 @@
 }
 @media screen and (min-width: 1500px) {
   .specifications_content {
-    overflow-y: scroll;
+    /* overflow-y: scroll;
     overflow-x: hidden;
-    height: 464px;
+    height: 464px; */
     display: flex;
     justify-content: space-between;
     padding-top: 1.5rem;
+    height: auto;
     /* margin: 1rem 6.8rem; */
     margin-right: 1rem;
     padding-bottom: 3.5rem;
@@ -112,9 +113,10 @@
 }
 @media screen and (min-width: 1700px) {
   .specifications_content {
-    overflow-y: scroll;
+    /* overflow-y: scroll;
     overflow-x: hidden;
-    height: 553px;
+    height: 553px; */
+    height: auto;
     display: flex;
     justify-content: space-between;
     padding-top: 1.5rem;
@@ -127,7 +129,7 @@
   .specifications_content {
     display: flex;
     justify-content: space-between;
-    height: 520px;
+    height: auto;
     margin: 1rem 2.5rem;
     padding-bottom: 3.5rem;
   }
@@ -144,15 +146,25 @@
   }
 
 
-  .s{
+  /* .s{
   width: 80%;
-  /* margin: 0 auto; */
   height: 45vh;
   padding-left: 4rem;
+  } */
+  .s{
+    width: 100%;
+    height: 70vh;
+    padding-left: 1rem;
   }
  
 }
-
+@media screen and (max-width: 1140px) {
+  .s{
+    width: 95%;
+    height: 70vh;
+    padding-left: 2rem;
+  }
+}
 
 /* 
 @media screen and (max-width: 1024px) {
@@ -200,7 +212,8 @@
     display: flex;
     justify-content: space-between;
     margin: 1rem 2.5rem;
-    height: 81.4vh;
+    height: auto;
+    /* height: 81.4vh; */
     padding-bottom: 3.5rem;
   }
   .specifications_title {
@@ -231,6 +244,7 @@
 @media screen and (max-width: 550px) {
   .specifications_content {
     display: block;
+    height: auto;
     justify-content: space-between;
     margin: 1rem 1.7rem;
     padding-bottom: 3.5rem;
@@ -240,7 +254,8 @@
     font-weight: 700;
   }
   .specifications_section{
-    height: 100vh;
+    /* height: 100vh; */
+    height: auto;
   }
   .specifications_content p {
     font-size: 18px;
